@@ -971,7 +971,7 @@ pre .javascript .function {
   bottom: 19px;
 }
 .header {
-  background: #fff;
+  background: url("https://ws1.sinaimg.cn/large/694830ebgy1fh3pyd05klj21kw0f2dy2.jpg");
 }
 .header-inner {
   position: relative;
@@ -994,7 +994,7 @@ pre .javascript .function {
   display: inline-block;
   padding: 0 40px;
   color: #fff;
-  background: #222;
+  background: none;
   border-bottom: none;
 }
 .brand:hover {
@@ -1010,13 +1010,14 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 24px;
+  font-size: 4em;
   font-weight: normal;
-  font-family: 'Lobster Two', 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Lobster Two", "Comic Sans MS", "Palatino Linotype", "Book Antiqua", cursive;
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
+S
+  font-size: 2em;
   color: #999;
 }
 .use-motion .brand {
@@ -1045,6 +1046,9 @@ pre .javascript .function {
   padding: 9px 10px;
   background: transparent;
   border: none;
+}
+.site-nav {
+  background: rgba(255,255,255,0.6);
 }
 @media (max-width: 767px) {
   .site-nav {
@@ -1698,7 +1702,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ad87ff;
+  background: #42eb33;
 }
 .links-of-blogroll {
   font-size: 13px;
