@@ -281,6 +281,478 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/19/变量作用域和解构赋值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/19/变量作用域和解构赋值/" itemprop="url">
+                  变量作用域与解构赋值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-19T20:06:00+08:00">
+                2018-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网路编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网路编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="var声明的变量具有作用域"><a href="#var声明的变量具有作用域" class="headerlink" title="var声明的变量具有作用域"></a><code>var</code>声明的变量具有作用域</h2><p><code>&#39;strict&#39;</code>模式中，<code>var</code>定义的变量作用域为整个函数体，在函数体外不可引用该变量。 不同函数内部的同名变量相互独立，互不影响。</p>
+<p><strong>函数嵌套中</strong> 内部函数可以访问外部函数定义的变量，反过来不行<br>如果<strong>内部函数和外部函数变量重名</strong>，以内部函数变量优先调用 - 内部函数的变量将“屏蔽”外部函数的变量（这两条性值和python类似）</p>
+<hr>
+<h2 id="优先确定变量-变量提升"><a href="#优先确定变量-变量提升" class="headerlink" title="优先确定变量 - 变量提升"></a>优先确定变量 - 变量提升</h2><p><code>JavaScript</code>的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部 - 可以时候后定义的变量</p>
+<p>因而最好<strong>在函数内部首先申明所有变量</strong></p>
+<hr>
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>不在任何函数内定义的变量就具有全局作用域。实际上，JavaScript默认有一个全局对象<code>window</code>，全局作用域的变量实际上被绑定到<code>window</code>的一个属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> course = <span class="string">'Learn JavaScript'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(course);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.course);</span><br></pre></td></tr></table></figure></p>
+<p>函数也是window的一个变量<br>JavaScript实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报<code>ReferenceError</code>错误（和python类似）</p>
+<hr>
+<h2 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h2><p>全局变量会绑定到window上，不同的JavaScript文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突，并且很难被发现<br>减少冲突的一个方法是把自己的所有变量和函数<strong>全部绑定到一个全局变量</strong>中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MYAPP = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">MYAPP.variable1 = <span class="number">1</span>;</span><br><span class="line">MYAPP.version = <span class="number">1.0</span>;</span><br><span class="line">MYAPP.foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'foo'</span>;</span><br><span class="line">MYAPP.version = <span class="number">1.1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="局部作用域-let"><a href="#局部作用域-let" class="headerlink" title="局部作用域 let"></a>局部作用域 let</h2><p>Javascript作用域是在函数内部，无法定义出 - 例如只在for循环中局部定义的 - 变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">100</span>; i ++) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">    i += <span class="number">100</span>; <span class="comment">//可以使用变量 i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ES6中引入关键字let,只作用于<abbr title="块作用域由 { } 包括">块级作用域</abbr><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;k <span class="number">100</span>; i++) &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    i += <span class="number">1</span>;   <span class="comment">//Raise SyntaxError</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>ES6 之前，<code>var</code>中定义的变量名为<strong>大写</strong> 来表示常量，ES6中，引用新的关键词<code>const</code>来定义常量，<code>const</code>和<code>let</code>都有块级作用域<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line">PI = <span class="number">3</span>;</span><br><span class="line">PI; <span class="comment">//3.14</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>对数组元素进行解构赋值时，多个变量要用<code>[...]</code>括起来<br>注意<strong>嵌套层次</strong>和<strong>位置</strong>需要保持一致<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [x, [y, z]] = [<span class="string">'hello'</span>, [<span class="string">'JavaScript'</span>, <span class="string">'ES6'</span>]]</span><br></pre></td></tr></table></figure></p>
+<h3 id="结构赋值可以忽略某些元素"><a href="#结构赋值可以忽略某些元素" class="headerlink" title="结构赋值可以忽略某些元素"></a>结构赋值可以忽略某些元素</h3><p>直接忽略前置的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [, , z] = [&apos;hello&apos;, &apos;JavaScript&apos;, &apos;ES6&apos;];</span><br><span class="line">z; // ES6</span><br></pre></td></tr></table></figure></p>
+<p>如果需要从一个<strong>对象</strong>中取出若干属性，也可以使用解构赋值，便于快速获取对象的指定属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">var person = &#123;</span><br><span class="line">    name: &apos;小明&apos;,</span><br><span class="line">    age: 20,</span><br><span class="line">    gender: &apos;male&apos;,</span><br><span class="line">    passport: &apos;G-12345678&apos;,</span><br><span class="line">    school: &apos;No.4 middle school&apos;</span><br><span class="line">&#125;;</span><br><span class="line">var &#123;name, age, passport&#125; = person;</span><br></pre></td></tr></table></figure></p>
+<h3 id="嵌套对象解构赋值"><a href="#嵌套对象解构赋值" class="headerlink" title="嵌套对象解构赋值"></a>嵌套对象解构赋值</h3><p>如有嵌套对象，也可以直接对<strong>嵌套的对象属性进行赋值</strong>，只要保证对应的层次是一致的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    gender: <span class="string">'male'</span>,</span><br><span class="line">    school: <span class="string">'YG'</span>,</span><br><span class="line">    address: &#123;</span><br><span class="line">        city: <span class="string">'Zhejiang Province'</span>,</span><br><span class="line">        street: <span class="string">'Century Road'</span>,</span><br><span class="line">        zipcode: <span class="string">'3111100'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> &#123;name, <span class="attr">adrress</span>: &#123;city, zip&#125;&#125;=person;</span><br><span class="line">name; <span class="comment">//'小明'</span></span><br><span class="line">city;    <span class="comment">//'Zhejiang Province'</span></span><br><span class="line">zip;     <span class="comment">//undefined 因为属性名是zipcode不是zip</span></span><br></pre></td></tr></table></figure></p>
+<p>使用解构赋值对对象属性进行赋值时，如果对应的属性不存在，变量将被赋值为undefined，这和引用一个不存在的属性获得undefined是一致的</p>
+<h3 id="属性直接赋值给另外一个变量"><a href="#属性直接赋值给另外一个变量" class="headerlink" title="属性直接赋值给另外一个变量"></a>属性直接赋值给另外一个变量</h3><p>如果要使用的变量名和属性名不一致可以在属性名后直接加上要赋值的变量名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    age: <span class="number">20</span>,</span><br><span class="line">    gender: <span class="string">'male'</span>,</span><br><span class="line">    passport: <span class="string">'G-12345678'</span>,</span><br><span class="line">    school: <span class="string">'No.4 middle school'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把passport属性赋值给变量id:</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, <span class="attr">passport</span>:id&#125; = person;</span><br></pre></td></tr></table></figure></p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>解构赋值可以使用默认值，来避免返回undefined的情况<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &#123;name, single=<span class="literal">true</span>&#125; = person;</span><br></pre></td></tr></table></figure></p>
+<h3 id="已声明的变量在解构中会报错"><a href="#已声明的变量在解构中会报错" class="headerlink" title="已声明的变量在解构中会报错"></a>已声明的变量在解构中会报错</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x, y;</span><br><span class="line"><span class="comment">// 解构赋值:</span></span><br><span class="line">&#123;x, y&#125; = &#123; <span class="attr">name</span>: <span class="string">'小明'</span>, <span class="attr">x</span>: <span class="number">100</span>, <span class="attr">y</span>: <span class="number">200</span>&#125;;</span><br><span class="line"><span class="comment">// 语法错误: Uncaught SyntaxError: Unexpected token =</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p><strong>swap</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x=1, y=2;</span><br><span class="line">[x, y] = [y, x]</span><br></pre></td></tr></table></figure></p>
+<p>快速获取域名，路径<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &#123;<span class="attr">hostname</span>:domain, <span class="attr">pathname</span>:path&#125; = location;</span><br></pre></td></tr></table></figure></p>
+<p><strong>解构赋值可以减少代码量</strong>，但是，需要在支持ES6解构赋值特性的现代浏览器中才能正常运行。目前支持解构赋值的浏览器包括Chrome，Firefox，Edge等</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/18/映射和集合/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/18/映射和集合/" itemprop="url">
+                  映射和集合
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T21:21:00+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网路编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网路编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="Map-映射"><a href="#Map-映射" class="headerlink" title="Map 映射"></a>Map 映射</h2><p><code>Map</code>是一组键值对结构，具有极快的查找速度<br>和dictionary，map类似<br><br></p>
+<hr>
+<h3 id="创建Map"><a href="#创建Map" class="headerlink" title="创建Map"></a>创建Map</h3><p><code>Map()</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span> ([[<span class="string">'Michael'</span>, <span class="number">95</span>], [<span class="string">'Bob'</span>, <span class="number">75</span>], [<span class="string">'Tracy'</span>, <span class="number">85</span>]]);</span><br><span class="line">m.get(<span class="string">'Michael'</span>);     <span class="comment">// 95</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<hr>
+<h3 id="使用-Map-get-key-来获得值"><a href="#使用-Map-get-key-来获得值" class="headerlink" title="使用 Map.get(key);来获得值,"></a>使用 <code>Map.get(key);</code>来获得值,</h3><h3 id="使用Map-delete-key-来删除键值对"><a href="#使用Map-delete-key-来删除键值对" class="headerlink" title="使用Map.delete(key);来删除键值对"></a>使用<code>Map.delete(key);</code>来删除键值对</h3><h3 id="使用Map-set-key-value-来创建键值对"><a href="#使用Map-set-key-value-来创建键值对" class="headerlink" title="使用Map.set(key, value);来创建键值对"></a>使用<code>Map.set(key, value);</code>来创建键值对</h3><h3 id="使用Map-has-key-判断键值对是否存在"><a href="#使用Map-has-key-判断键值对是否存在" class="headerlink" title="使用Map.has(key);判断键值对是否存在"></a>使用<code>Map.has(key);</code>判断键值对是否存在</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map();              //empty</span><br><span class="line">m.set(&apos;Adam&apos;, 67);                //添加新的键值对</span><br><span class="line">m.set(&apos;Bob&apos;, 59);                   //</span><br><span class="line">m.has(&apos;Bob&apos;);                        //true</span><br><span class="line">m.get(&apos;Bob&apos;);                         //88</span><br><span class="line">m.delete(&apos;Adam&apos;);                 //删除&apos;Adam&apos;为key的键值对</span><br><span class="line">m.get(&apos;Adam&apos;);                      /undefined</span><br></pre></td></tr></table></figure>
+<p><strong>由于<code>key</code>只能对应一个<code>value</code>, 后面<code>set(key, value);</code>的<code>key-value</code>会顶替之前的<code>key-value</code>对</strong><br><br></p>
+<hr>
+<h2 id="集合Set"><a href="#集合Set" class="headerlink" title="集合Set"></a>集合Set</h2><p><code>Set</code>是一组<code>key</code>的集合，不存储<code>value</code>，<code>set</code>中没有重复的<code>key</code><br>要创建一个<code>Set</code>，需要以一个<code>Array</code>作为输入或者建立一个空<code>Set</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>();                          <span class="comment">//empty set</span></span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="string">'3'</span>];     <span class="comment">//Set &#123;1, 2, 3, '3'&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<hr>
+<h3 id="增-删key"><a href="#增-删key" class="headerlink" title="增/删key"></a>增/删key</h3><p><code>Set.add(key);</code>           为<code>Set</code>增加<code>key</code><br><code>Set.delete(key);</code>       为<code>Set</code>减少<code>key</code><br><br></p>
+<hr>
+<h2 id="1于-39-1-39"><a href="#1于-39-1-39" class="headerlink" title="1于&#39;1&#39;"></a><code>1</code>于<code>&#39;1&#39;</code></h2><p><code>Map</code> 和<code>Set</code>中 <code>1</code>与<code>&#39;1&#39;</code>都不一样</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/18/对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/18/对象/" itemprop="url">
+                  对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T19:26:39+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网路编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网路编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成"><a href="#JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成" class="headerlink" title="JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成"></a>JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'xiaoming'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    school: <span class="string">'Zhejiang U'</span>,</span><br><span class="line">    height: <span class="string">'1.76'</span>,</span><br><span class="line">    weight: <span class="string">'65'</span>,</span><br><span class="line">    scroe: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>键值对使用<code>xxx:xxx</code>形式声明，用<code>,</code>分隔，最后一个键值对不需要用<code>,</code>分隔<br><br></p>
+<h3 id="属性名必须是一个有效变量，如果中间有特殊字符，需要用-39-39-括起来"><a href="#属性名必须是一个有效变量，如果中间有特殊字符，需要用-39-39-括起来" class="headerlink" title="属性名必须是一个有效变量，如果中间有特殊字符，需要用&#39;&#39;括起来"></a>属性名必须是一个有效变量，如果中间有特殊字符，需要用<code>&#39;&#39;</code>括起来</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xioaming &#123;</span><br><span class="line">    <span class="string">'middle-school'</span>: <span class="string">'YG'</span>,</span><br><span class="line">    name: <span class="string">'xioaming'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="属性-值的获取"><a href="#属性-值的获取" class="headerlink" title="属性/值的获取"></a>属性/值的获取</h2><p>访问属性通过<code>.</code>操作符完成，如果属性名不是有效变量，中间有特殊字符，需要使用<code>[&#39;valueName&#39;]</code>的方式访问属性值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xiaoming[<span class="string">'middle-school'</span>]; <span class="comment">// 'YG'</span></span><br><span class="line">xioaming.name;                 <span class="comment">// 'xiaoming'</span></span><br></pre></td></tr></table></figure>
+<p>也可以用<code>xiaoming[&#39;name&#39;]</code>来访问<code>xiaoming</code>的<code>name</code>属性，不过<code>xiaoming.name</code>的写法更简洁。<br>属性名尽量使用标准的变量名，可以直接使用<code>.</code>操作符</p>
+<h3 id="访问不存在的属性"><a href="#访问不存在的属性" class="headerlink" title="访问不存在的属性"></a>访问不存在的属性</h3><p>返回<code>undefined</code></p>
+<h2 id="对象增加-删除属性"><a href="#对象增加-删除属性" class="headerlink" title="对象增加/删除属性"></a>对象增加/删除属性</h2><p>使用<code>delete</code>删除属性，使用复制语句增加属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xioaming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">    xioaming.age;                 <span class="comment">//undefined</span></span><br><span class="line">    xioaming.age=<span class="number">18</span>;</span><br><span class="line">    xioaming.age                  <span class="comment">//18</span></span><br><span class="line">    <span class="keyword">delete</span> xiaoming.name;</span><br><span class="line">    xiaomming.name;          <span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">delete</span> xiaoming.school; <span class="comment">//删除不存的属性也不会报错</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="判断属性是否存在"><a href="#判断属性是否存在" class="headerlink" title="判断属性是否存在"></a>判断属性是否存在</h2><h3 id="in"><a href="#in" class="headerlink" title="in"></a><code>in</code></h3><p><code>in</code>用来判断属性是否存在，但是属性也可能是由继承得到的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> xiaoming;   <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty()"></a><code>hasOwnProperty()</code></h2><p>判断一个<code>object</code>是否自身具有某属性，可以使用<code>hasOwnProperty()</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xioaming  = &#123;</span><br><span class="line">    name : <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">'name'</span>);      <span class="comment">//true</span></span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">'toString'</span>);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/18/字符串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -557,7 +1029,7 @@
 <p><strong><code>concat()</code>方法并没有修改当前<code>Array</code>，而是返回了一个新的<code>Array</code></strong></p>
 <p><code>concat()</code> 可以接受任意个元素或者<code>Array</code>，对于<code>Array</code>，会将其拆开，然后全部添加到新的<code>Array</code>中</p>
 <hr>
-<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><p><code>join(link-char)</code>它把当前的Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// ['A', 'B', 'C', 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><p><code>join(link-char)</code>它把当前的Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串<br>不改变原本<code>Array</code>的内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// ['A', 'B', 'C', 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1468,156 +1940,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/12/我们这些普通的年轻人的出路在哪里/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/12/我们这些普通的年轻人的出路在哪里/" itemprop="url">
-                  我们这些普通的年轻人的出路在哪里
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T00:28:34+08:00">
-                2018-09-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="我不太喜欢社交"><a href="#我不太喜欢社交" class="headerlink" title="我不太喜欢社交."></a>我不太喜欢社交.</h2><p>那就不社交了，有几个知心朋友满足了.</p>
-<h2 id="我真的很喜欢剪辑ps-推文制作吗"><a href="#我真的很喜欢剪辑ps-推文制作吗" class="headerlink" title="我真的很喜欢剪辑ps,推文制作吗."></a>我真的很喜欢剪辑ps,推文制作吗.</h2><p>不, 我一点不喜欢</p>
-<h2 id="很喜欢编程吗"><a href="#很喜欢编程吗" class="headerlink" title="很喜欢编程吗"></a>很喜欢编程吗</h2><p>是的</p>
-<h2 id="有多喜欢"><a href="#有多喜欢" class="headerlink" title="有多喜欢"></a>有多喜欢</h2><p>有时候写着代码就能high起来, 有时候又讨厌, 恨不得逃脱开来</p>
-<h2 id="我是为了生活找工作去编程吗"><a href="#我是为了生活找工作去编程吗" class="headerlink" title="我是为了生活找工作去编程吗"></a>我是为了生活找工作去编程吗</h2><p>是的, 我给我自己的压力太大了, 我都忘记掉我当时为什么去学编程了. 我想做通解编译器, 操作系统, 网路编程的牛人, 我想过能够成为和乌云这样的很帅的一群人一样. 对了, 我就是觉得编程很帅, 很符合我的感觉。</p>
-<p>但是突然之间, 自己有了很大压力, 感觉人生是有轨迹的. 我一定要挣到钱, 一定要买到房, 一定要独立地过, 我一定要成为能在社会立足地人, 就像符合他人地期待一样。<br>突然就会有一种苦涩</p>
-<h2 id="我们普通的年轻人出路-是在哪里呢"><a href="#我们普通的年轻人出路-是在哪里呢" class="headerlink" title="我们普通的年轻人出路, 是在哪里呢"></a>我们普通的年轻人出路, 是在哪里呢</h2><p>很想像张公子一样做一个潇洒的人, 每个人都有自己觉得很帅的时候吧，每个人都有觉得自己自由的时候吧. 我的自由就在黑白的命令行里了，我想去做我想成为的人. </p>
-<h2 id="会感到无力吗"><a href="#会感到无力吗" class="headerlink" title="会感到无力吗"></a>会感到无力吗</h2><p>常常感到，作为一个不是科班，又没有课蹭的，自学真的很麻烦，又没有任何目标，完全就是摸黑，不过也是我不善于求助的原因吧。其实我也向知乎求助了，如果没有知乎我可能会更迷茫吧。我也了解到了勃学这种奇葩的理论，不过有一点我还是觉得很ok的，认识到自己的不足，认识到自己的失败，<strong>成功是宇宙禁止的东西</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -1660,7 +1989,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
