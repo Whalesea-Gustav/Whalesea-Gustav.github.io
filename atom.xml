@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-22T15:50:18.740Z</updated>
+  <updated>2018-10-08T00:42:23.330Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FromNand2Tetris</title>
+    <link href="http://yoursite.com//blog/2018/10/07/nand2tetris/"/>
+    <id>http://yoursite.com//blog/2018/10/07/nand2tetris/</id>
+    <published>2018-10-07T13:00:00.000Z</published>
+    <updated>2018-10-08T00:42:23.330Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;coursera：From nand to tetris，part I &amp;amp; part
+        
+      
+    
+    </summary>
+    
+      <category term="计算机组成原理" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
+    
+      <category term="nand2tetris" scheme="http://yoursite.com/tags/nand2tetris/"/>
+    
+  </entry>
   
   <entry>
     <title>原型继承</title>
