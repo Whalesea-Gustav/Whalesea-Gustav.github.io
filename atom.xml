@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-08T00:42:23.330Z</updated>
+  <updated>2018-10-16T13:14:09.971Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LIFE IS STRANGE</title>
+    <link href="http://yoursite.com//blog/2018/10/16/pain/"/>
+    <id>http://yoursite.com//blog/2018/10/16/pain/</id>
+    <published>2018-10-16T13:12:34.000Z</published>
+    <updated>2018-10-16T13:14:09.971Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;哎，这一周真的经历了很多&lt;/p&gt;
+&lt;p&gt;有些时候，不经历过的情感，难以想象其中的痛苦&lt;/p&gt;
+&lt;p&gt;起码我活过来了，继续努力吧&lt;/p&gt;
+&lt;p&gt;最近也开始复习python了，每天看一两道算法题&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+    
+      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
+    
+  </entry>
   
   <entry>
     <title>FromNand2Tetris</title>
