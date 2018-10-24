@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-23T14:22:38.815Z</updated>
+  <updated>2018-10-24T10:00:52.344Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>which</title>
+    <link href="http://yoursite.com//blog/2018/10/24/which/"/>
+    <id>http://yoursite.com//blog/2018/10/24/which/</id>
+    <published>2018-10-24T09:56:00.000Z</published>
+    <updated>2018-10-24T10:00:52.344Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;JNI error,
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>批量缩进</title>
@@ -564,33 +590,6 @@
       <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
       <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我们这些普通的年轻人的出路在哪里</title>
-    <link href="http://yoursite.com//blog/2018/09/12/%E6%88%91%E4%BB%AC%E8%BF%99%E4%BA%9B%E6%99%AE%E9%80%9A%E7%9A%84%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E5%87%BA%E8%B7%AF%E5%9C%A8%E5%93%AA%E9%87%8C/"/>
-    <id>http://yoursite.com//blog/2018/09/12/我们这些普通的年轻人的出路在哪里/</id>
-    <published>2018-09-11T16:28:34.000Z</published>
-    <updated>2018-09-15T12:02:43.384Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;我不太喜欢社交&quot;&gt;&lt;a href=&quot;#我不太喜欢社交&quot; class=&quot;headerlink&quot; title=&quot;我不太喜欢社交.&quot;&gt;&lt;/a&gt;我不太喜欢社交.&lt;/h2&gt;&lt;p&gt;那就不社交了，有几个知心朋友满足了.&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
     
   </entry>
   
