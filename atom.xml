@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-10T11:41:09.488Z</updated>
+  <updated>2018-11-10T13:36:56.587Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>版本回溯su</title>
+    <link href="http://yoursite.com//blog/2018/11/10/%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/"/>
+    <id>http://yoursite.com//blog/2018/11/10/版本回退/</id>
+    <published>2018-11-10T11:22:00.000Z</published>
+    <updated>2018-11-10T13:36:56.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h1 id=&quot;Review&quot;&gt;&lt;a href=&quot;#Review&quot; class=&quot;headerlink&quot; title=&quot;Review&quot;&gt;&lt;/a&gt;Review&lt;/h1&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>Debugger</title>
@@ -154,9 +181,9 @@
       <category term="计算机组成原理" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
-    
       <category term="nand2tetris" scheme="http://yoursite.com/tags/nand2tetris/"/>
+    
+      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
     
   </entry>
   
@@ -549,34 +576,6 @@
         
         
           &lt;h1 id=&quot;Suckerfish下拉菜单&quot;&gt;&lt;a href=&quot;#Suckerfish下拉菜单&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS实现导航条Tab切换</title>
-    <link href="http://yoursite.com//blog/2018/09/15/CSS%E5%AE%9E%E7%8E%B0%E5%AF%BC%E8%88%AA%E6%9D%A1Tab%E5%88%87%E6%8D%A2/"/>
-    <id>http://yoursite.com//blog/2018/09/15/CSS实现导航条Tab切换/</id>
-    <published>2018-09-15T11:47:39.000Z</published>
-    <updated>2018-09-17T13:25:16.628Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;CSS实现导航条Tab切换&quot;&gt;&lt;a href=&quot;#CSS实现导航条Tab切换&quot; class=&quot;headerlink&quot; title=&quot;CSS实现导航条Tab切换&quot;&gt;&lt;/a&gt;CSS实现导航条Tab切换&lt;/h1&gt;&lt;p&gt;&lt;a
         
       
     

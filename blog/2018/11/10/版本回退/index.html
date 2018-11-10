@@ -1,0 +1,774 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="whalesea`s blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Review12345$git add --all$git commit -m &quot;1st submission&quot;	[master f40d786] 1st submission	 X file changed, Y insertations(+) 	 create mode ...... roadMap https://sp18.datastructur.es/materials/guides/">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="版本回溯su">
+<meta property="og:url" content="http://yoursite.com/blog/2018/11/10/版本回退/index.html">
+<meta property="og:site_name" content="whalesea`s blog">
+<meta property="og:description" content="Review12345$git add --all$git commit -m &quot;1st submission&quot;	[master f40d786] 1st submission	 X file changed, Y insertations(+) 	 create mode ...... roadMap https://sp18.datastructur.es/materials/guides/">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-10T13:36:56.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="版本回溯su">
+<meta name="twitter:description" content="Review12345$git add --all$git commit -m &quot;1st submission&quot;	[master f40d786] 1st submission	 X file changed, Y insertations(+) 	 create mode ...... roadMap https://sp18.datastructur.es/materials/guides/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/blog/2018/11/10/版本回退/"/>
+
+
+
+
+
+  <title> 版本回溯su | whalesea`s blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">whalesea`s blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">willsee</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/版本回退/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                版本回溯su
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
+                2018-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git add --all</span><br><span class="line"><span class="meta">$</span>git commit -m "1st submission"</span><br><span class="line">	[master f40d786] 1st submission</span><br><span class="line">	 X file changed, Y insertations(+)</span><br><span class="line"> 	 create mode ......</span><br></pre></td></tr></table></figure>
+<p><a href="https://sp18.datastructur.es/materials/guides/img/file-status.png" target="_blank" rel="noopener">roadMap</a></p>
+<p><a href="https://sp18.datastructur.es/materials/guides/using-git.html" target="_blank" rel="noopener">https://sp18.datastructur.es/materials/guides/using-git.html</a></p>
+<hr>
+<h1 id="版本回溯"><a href="#版本回溯" class="headerlink" title="版本回溯"></a>版本回溯</h1><hr>
+<h2 id="查看版本历史纪录"><a href="#查看版本历史纪录" class="headerlink" title="查看版本历史纪录"></a>查看版本历史纪录</h2><p><code>git log</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log</span><br><span class="line">commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master)</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:06:15 2018 +0800</span><br><span class="line"></span><br><span class="line">    append GPL</span><br><span class="line"></span><br><span class="line">commit e475afc93c209a690c39c13a46716e8fa000c366</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:03:36 2018 +0800</span><br><span class="line"></span><br><span class="line">    add distributed</span><br><span class="line"></span><br><span class="line">commit eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 20:59:18 2018 +0800</span><br><span class="line"></span><br><span class="line">    wrote a readme files</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="输出单行简略版log历史纪录"><a href="#输出单行简略版log历史纪录" class="headerlink" title="输出单行简略版log历史纪录"></a>输出单行简略版log历史纪录</h3><p><code>git log --pretty=oneline</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">42288d4662fbe775395584c925f55278fb7589be (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="回退到具体的一个版本"><a href="#回退到具体的一个版本" class="headerlink" title="回退到具体的一个版本"></a>回退到具体的一个版本</h2><hr>
+<h3 id="版本信息commit-id-HEAD"><a href="#版本信息commit-id-HEAD" class="headerlink" title="版本信息commit id HEAD"></a>版本信息<code>commit id</code> <code>HEAD</code></h3><p>如上文，类似<code>42288d4662fbe775395584c925f55278fb7589be</code> <code>f40d7867ffa9582c6422d3ac1e7fd90bfca50153</code> 是<code>commit id</code> </p>
+<p>在<code>Git</code>中，<code>HEAD</code>表示的是 当前最新的版本 - 上文中就是，<strong>*42288d4662fbe775395584c925f55278fb7589be</strong> (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns*</p>
+<p>前一个版本可以表示为<code>^HEAD</code>,再往前面一个版本为<code>^^HEAD</code></p>
+<p> 回溯100个版本可以表示为<code>HEAD~100</code></p>
+<p><strong>Hint <code>git log -n</code> 可以控制输出log的条数，输出最近n条log</strong></p>
+<hr>
+<h3 id="回溯-git-reset"><a href="#回溯-git-reset" class="headerlink" title="回溯 git reset"></a>回溯 <code>git reset</code></h3><p><code>git ret</code> 命令用于指定回退到某一版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git reset --hard  HEAD^</span><br><span class="line"><span class="meta">$</span>git log -3</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 (HEAD -&gt; master) add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure>
+<p>再使用<code>log</code>查看<code>commit id</code>记录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log -3 --pretty=oneline</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 (HEAD -&gt; master) add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure></p>
+<p>会发现<code>HEAD</code>指针，指向了<code>commmit id</code>为<code>f40d...</code>的版本</p>
+<p>(–hard 执行细节另述)</p>
+<hr>
+<h4 id="回溯到回溯之前的commit-id"><a href="#回溯到回溯之前的commit-id" class="headerlink" title="回溯到回溯之前的commit id"></a>回溯到回溯之前的<code>commit id</code></h4><p>在shell / cmd 没有关掉时，可以再输入回溯之前的<code>commit id</code>来回到之前的版本(可以通过<code>git reflog</code>查看之前的<code>HEAD</code>指向情况)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git reset --hard 42288d</span><br><span class="line"><span class="meta">$</span>git log -5 --pretty=onelien</span><br><span class="line">42288d4662fbe775395584c925f55278fb7589be (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br><span class="line">1da7660846aa5a226e130d4b26074d63eaa7ea40 proj 0 2rd try</span><br></pre></td></tr></table></figure>
+<p>实际上不用写全<code>commit id</code>，只要写一些部分，<code>git</code>会进行自动查找，并执行命令</p>
+<hr>
+<h2 id="回溯简单原理"><a href="#回溯简单原理" class="headerlink" title="回溯简单原理"></a>回溯简单原理</h2><p><code>Git</code> 内部有指向当前版本的<code>HEAD</code>指针，<code>reset</code> 命令让<code>Git</code>中<code>HEAD</code>指针进行切换，指向特定的版本号<br><em>当前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112922@2x.png" target="_blank" rel="noopener">now</a><br><em>回溯到之前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112940@2x.png" target="_blank" rel="noopener">reset</a></p>
+<h3 id="reflog记录每一次命令"><a href="#reflog记录每一次命令" class="headerlink" title="reflog记录每一次命令"></a><code>reflog</code>记录每一次命令</h3><p>相对于记录<code>commit id</code>的<code>log</code>，<code>relog</code>帮助记录每一个命令，以及操作的<code>HEAD</code>指向对象</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog -5 --pretty=oneline</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;0&#125;: reset: moving to42288d</span><br><span class="line">f40d786 HEAD@&#123;1&#125;: reset: moving to HEAD^</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;2&#125;: commit: 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d786 HEAD@&#123;3&#125;: commit: add explanaition</span><br><span class="line">916759d HEAD@&#123;4&#125;: commit: 1st submission of Debug Practice Lab2</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/11/10/debugger/" rel="next" title="Debugger">
+                <i class="fa fa-chevron-left"></i> Debugger
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="YNG`s Not Gu" />
+          <p class="site-author-name" itemprop="name">YNG`s Not Gu</p>
+           
+              <p class="site-description motion-element" itemprop="description">life is short, fuck the world</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Whalesea-Gustav" target="_blank" title="Github">
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/我是牛" target="_blank" title="Zhihu">
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Review"><span class="nav-number">1.</span> <span class="nav-text">Review</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本回溯"><span class="nav-number">2.</span> <span class="nav-text">版本回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看版本历史纪录"><span class="nav-number">2.1.</span> <span class="nav-text">查看版本历史纪录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出单行简略版log历史纪录"><span class="nav-number">2.1.1.</span> <span class="nav-text">输出单行简略版log历史纪录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回退到具体的一个版本"><span class="nav-number">2.2.</span> <span class="nav-text">回退到具体的一个版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本信息commit-id-HEAD"><span class="nav-number">2.2.1.</span> <span class="nav-text">版本信息commit id HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯-git-reset"><span class="nav-number">2.2.2.</span> <span class="nav-text">回溯 git reset</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯到回溯之前的commit-id"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">回溯到回溯之前的commit id</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯简单原理"><span class="nav-number">2.3.</span> <span class="nav-text">回溯简单原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reflog记录每一次命令"><span class="nav-number">2.3.1.</span> <span class="nav-text">reflog记录每一次命令</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YNG`s Not Gu</span>
+</div>
+
+
+<div class="powered-by">
+  可能努力也不会有好结果
+</div>
+
+<div class="theme-info">
+  那不是不努力的理由 
+
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

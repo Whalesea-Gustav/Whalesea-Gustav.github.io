@@ -281,6 +281,177 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/版本回退/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/11/10/版本回退/" itemprop="url">
+                  版本回溯su
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
+                2018-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git add --all</span><br><span class="line"><span class="meta">$</span>git commit -m "1st submission"</span><br><span class="line">	[master f40d786] 1st submission</span><br><span class="line">	 X file changed, Y insertations(+)</span><br><span class="line"> 	 create mode ......</span><br></pre></td></tr></table></figure>
+<p><a href="https://sp18.datastructur.es/materials/guides/img/file-status.png" target="_blank" rel="noopener">roadMap</a></p>
+<p><a href="https://sp18.datastructur.es/materials/guides/using-git.html" target="_blank" rel="noopener">https://sp18.datastructur.es/materials/guides/using-git.html</a></p>
+<hr>
+<h1 id="版本回溯"><a href="#版本回溯" class="headerlink" title="版本回溯"></a>版本回溯</h1><hr>
+<h2 id="查看版本历史纪录"><a href="#查看版本历史纪录" class="headerlink" title="查看版本历史纪录"></a>查看版本历史纪录</h2><p><code>git log</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log</span><br><span class="line">commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master)</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:06:15 2018 +0800</span><br><span class="line"></span><br><span class="line">    append GPL</span><br><span class="line"></span><br><span class="line">commit e475afc93c209a690c39c13a46716e8fa000c366</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 21:03:36 2018 +0800</span><br><span class="line"></span><br><span class="line">    add distributed</span><br><span class="line"></span><br><span class="line">commit eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0</span><br><span class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</span><br><span class="line">Date:   Fri May 18 20:59:18 2018 +0800</span><br><span class="line"></span><br><span class="line">    wrote a readme files</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="输出单行简略版log历史纪录"><a href="#输出单行简略版log历史纪录" class="headerlink" title="输出单行简略版log历史纪录"></a>输出单行简略版log历史纪录</h3><p><code>git log --pretty=oneline</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">42288d4662fbe775395584c925f55278fb7589be (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="回退到具体的一个版本"><a href="#回退到具体的一个版本" class="headerlink" title="回退到具体的一个版本"></a>回退到具体的一个版本</h2><hr>
+<h3 id="版本信息commit-id-HEAD"><a href="#版本信息commit-id-HEAD" class="headerlink" title="版本信息commit id HEAD"></a>版本信息<code>commit id</code> <code>HEAD</code></h3><p>如上文，类似<code>42288d4662fbe775395584c925f55278fb7589be</code> <code>f40d7867ffa9582c6422d3ac1e7fd90bfca50153</code> 是<code>commit id</code> </p>
+<p>在<code>Git</code>中，<code>HEAD</code>表示的是 当前最新的版本 - 上文中就是，<strong>*42288d4662fbe775395584c925f55278fb7589be</strong> (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns*</p>
+<p>前一个版本可以表示为<code>^HEAD</code>,再往前面一个版本为<code>^^HEAD</code></p>
+<p> 回溯100个版本可以表示为<code>HEAD~100</code></p>
+<p><strong>Hint <code>git log -n</code> 可以控制输出log的条数，输出最近n条log</strong></p>
+<hr>
+<h3 id="回溯-git-reset"><a href="#回溯-git-reset" class="headerlink" title="回溯 git reset"></a>回溯 <code>git reset</code></h3><p><code>git ret</code> 命令用于指定回退到某一版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git reset --hard  HEAD^</span><br><span class="line"><span class="meta">$</span>git log -3</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 (HEAD -&gt; master) add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure>
+<p>再使用<code>log</code>查看<code>commit id</code>记录<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git log -3 --pretty=oneline</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 (HEAD -&gt; master) add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br></pre></td></tr></table></figure></p>
+<p>会发现<code>HEAD</code>指针，指向了<code>commmit id</code>为<code>f40d...</code>的版本</p>
+<p>(–hard 执行细节另述)</p>
+<hr>
+<h4 id="回溯到回溯之前的commit-id"><a href="#回溯到回溯之前的commit-id" class="headerlink" title="回溯到回溯之前的commit id"></a>回溯到回溯之前的<code>commit id</code></h4><p>在shell / cmd 没有关掉时，可以再输入回溯之前的<code>commit id</code>来回到之前的版本(可以通过<code>git reflog</code>查看之前的<code>HEAD</code>指向情况)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>git reset --hard 42288d</span><br><span class="line"><span class="meta">$</span>git log -5 --pretty=onelien</span><br><span class="line">42288d4662fbe775395584c925f55278fb7589be (HEAD -&gt; master, origin/master, origin/HEAD) 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d7867ffa9582c6422d3ac1e7fd90bfca50153 add explanaition</span><br><span class="line">916759da166972de1a4d0ffa608414be529b01b0 1st submission of Debug Practice Lab2</span><br><span class="line">c89245fb5c9e66e3830456c18d606bcc4f58d8f0 1st submission of lab2</span><br><span class="line">1da7660846aa5a226e130d4b26074d63eaa7ea40 proj 0 2rd try</span><br></pre></td></tr></table></figure>
+<p>实际上不用写全<code>commit id</code>，只要写一些部分，<code>git</code>会进行自动查找，并执行命令</p>
+<hr>
+<h2 id="回溯简单原理"><a href="#回溯简单原理" class="headerlink" title="回溯简单原理"></a>回溯简单原理</h2><p><code>Git</code> 内部有指向当前版本的<code>HEAD</code>指针，<code>reset</code> 命令让<code>Git</code>中<code>HEAD</code>指针进行切换，指向特定的版本号<br><em>当前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112922@2x.png" target="_blank" rel="noopener">now</a><br><em>回溯到之前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112940@2x.png" target="_blank" rel="noopener">reset</a></p>
+<h3 id="reflog记录每一次命令"><a href="#reflog记录每一次命令" class="headerlink" title="reflog记录每一次命令"></a><code>reflog</code>记录每一次命令</h3><p>相对于记录<code>commit id</code>的<code>log</code>，<code>relog</code>帮助记录每一个命令，以及操作的<code>HEAD</code>指向对象</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog -5 --pretty=oneline</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;0&#125;: reset: moving to42288d</span><br><span class="line">f40d786 HEAD@&#123;1&#125;: reset: moving to HEAD^</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;2&#125;: commit: 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d786 HEAD@&#123;3&#125;: commit: add explanaition</span><br><span class="line">916759d HEAD@&#123;4&#125;: commit: 1st submission of Debug Practice Lab2</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/debugger/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1662,209 +1833,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/21/RegExp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/21/RegExp/" itemprop="url">
-                  正则表达式RegExp
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T01:10:00+08:00">
-                2018-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="正则表达式知识"><a href="#正则表达式知识" class="headerlink" title="正则表达式知识"></a>正则表达式知识</h2><h3 id="正则表达式基础"><a href="#正则表达式基础" class="headerlink" title="正则表达式基础"></a>正则表达式基础</h3><p>直接给出字符可以精确匹配<br>通用匹配</p>
-<ol>
-<li><code>\d</code> 匹配一个数字</li>
-<li><code>\w</code> 匹配一个字母</li>
-<li><code>.</code> 匹配任意字符</li>
-<li><code>\s</code> 匹配空格，<code>\t</code></li>
-</ol>
-<p>多字符匹配</p>
-<ol>
-<li><code>*</code> 表示前面的规则应用任意个字符</li>
-<li><code>+</code> 表示匹配至少一个字符</li>
-<li><code>?</code> 表示匹配0~1个字符</li>
-<li><code>{n}</code> 表示精确指定n个字符串</li>
-<li><code>{n,m}</code> 表示匹配n~m个字符</li>
-</ol>
-<h3 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h3><p>[范围规则ruler]表示一个字符在范围内匹配</p>
-<ol>
-<li>[0-9]                   匹配一个数字</li>
-<li>[0-9A-Za-z]        匹配一个数字或者字母</li>
-<li>[0-9A-Za-z_]     匹配一个数字或者字母或者下划线</li>
-<li>[0-9A-Za-z_] +  匹配至少一个(数字或者字母或者下划线) 例如 <code>&#39;a110&#39;</code>, <code>&#39;0_Z&#39;</code>, <code>&#39;js2015&#39;</code></li>
-<li>多个[ ]组合 [a-zA-Z_\$][0-9a-zA-Z]{0, 19} 精确指定长度为1-20个字符 (前面一个字符开头，后面0~19个指定字符)</li>
-</ol>
-<p><code>A|B</code> 表示匹配A或者B <code>(J|j)ava(S|s)cript</code>可以匹配’JavaScript’, ‘javascript’等<br><code>^</code> 表示后面的规则应用于第一个字符        <code>^\d</code>表示以一个数字开头<br>‘$’  表示前面的规则应用于最后一个字符    ‘\d$` 表示一一个数字结尾</p>
-<p>需要转义的字符</p>
-<ol>
-<li>保留字符<ul>
-<li><code>+</code> — <code>\+</code></li>
-<li><code>*</code> — <code>\*</code></li>
-<li><code>?</code> — <code>\?</code>  </li>
-<li><code>$</code> — <code>\$</code></li>
-<li><code>.</code> — <code>\.</code></li>
-<li><code>[</code> <code>]</code> — <code>\[</code> <code>\]</code></li>
-<li><code>{</code> <code>}</code> — <code>\{</code> <code>\}</code></li>
-<li><code>(</code> <code>)</code> — <code>\(</code> <code>\)</code></li>
-<li><code>|</code> — <code>\|</code></li>
-<li><code>/</code> — <code>\/</code></li>
-</ul>
-</li>
-<li>制表，换行，空(null)，垂直制表，换页，空格  — <code>\t</code>  <code>\n</code>  <code>\0</code> <code>\v</code>  <code>\f</code> <code>\s</code></li>
-</ol>
-<hr>
-<h2 id="JavaScript中的RegExp"><a href="#JavaScript中的RegExp" class="headerlink" title="JavaScript中的RegExp"></a>JavaScript中的RegExp</h2><p>javascript中有两种创建正则表达式的方式</p>
-<ol>
-<li><code>/正则表达式/</code> 赋值给变量</li>
-<li><code>new RegExp(&#39;正则表达式&#39;)</code> 创建一个<code>RegExp</code>对象</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re1 = <span class="regexp">/ABC\-001/</span>;                   <span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> re2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ABC\\-001'</span>);      <span class="comment">//方法2</span></span><br><span class="line">re1;     <span class="comment">// /ABC\-001/</span></span><br><span class="line">re2;     <span class="comment">// /ABC\-001/</span></span><br></pre></td></tr></table></figure>
-<p>第二种方法时，字符中需要转义，<code>\\</code>表示转义出一个<code>\</code></p>
-<h3 id="判断正则表达式是否匹配"><a href="#判断正则表达式是否匹配" class="headerlink" title="判断正则表达式是否匹配"></a>判断正则表达式是否匹配</h3><p><code>RegExp.test(testString)</code><br>使用<code>test</code>方法来测定给定的字符串是否符合条件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^d&#123;3&#125;\-\d(3,8&#125;$/</span>;</span><br><span class="line">re.test(<span class="string">'010-12345'</span>);     <span class="comment">// true</span></span><br><span class="line">re.test(<span class="string">'010-1234x'</span>);     <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><p><code>string.split(/正则表达式/);</code><br><code>string</code>中去除符合正则表达式的子字符(串)，然后剩下的子字符串组形成一个<code>Array</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a b;;  ,,,  c'</span>.split(<span class="regexp">/[\s\;\,]+/</span>);   <span class="comment">//['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>类似于python re.math中分组后的group<br>正则表达式中，用<code>()</code>包括起来的就是需要提取的分组(group)<br><code>RegExp.exec(String)</code>就可以将<strong>符合正则表达式的字符串</strong>，按组提取出子字符串，将其组合成一个<code>Array</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^(\d&#123;3&#125;-(\d&#123;3,8&#125;$/</span>;</span><br><span class="line">re.exec(<span class="string">'010-12345'</span>);        <span class="comment">// ['010-12345', '010', '12345']</span></span><br><span class="line">re.exec(<span class="string">'010 12345'</span>);        <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h2><p>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var re = /^(\d+)(0*)$/;</span><br><span class="line">re.exec(&apos;102300&apos;);        // [&apos;102300&apos;, &apos;102300&apos;, &apos;&apos;]</span><br></pre></td></tr></table></figure></p>
-<p><code>\d+</code>把所有<code>0</code>都匹配了</p>
-<h3 id="进入非贪婪模式"><a href="#进入非贪婪模式" class="headerlink" title="进入非贪婪模式"></a>进入非贪婪模式</h3><p>默认是贪婪模式；在<strong>量词</strong>后面直接加上一个<code>？</code>就是非贪婪模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^(\d+?)(0*)$/</span>;</span><br><span class="line">re.exec(<span class="string">'102300'</span>);          <span class="comment">//['102300', '102, '00']</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="全局搜索"><a href="#全局搜索" class="headerlink" title="全局搜索"></a>全局搜索</h2><p>JavaScript有特殊标志 - 其中较为特殊的是<code>g</code>，表示全局匹配<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r1 = <span class="regexp">/test/g</span>;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> r1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'test'</span>, <span class="string">'g'</span>);</span><br></pre></td></tr></table></figure></p>
-<p>全局可以多次执行<code>exex()</code>方法，去搜索字符串中符合的子字符串<br>当使用全局搜索时，每次运行<code>exec()</code>， 正则表达式会更新<code>lastIndex</code>属性，其表示上次匹配的最后的索引<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'JavaScript, VBSript, ECMAScript'</span>;</span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/[a-zA-Z]+Script/g</span>;</span><br><span class="line"><span class="comment">// 使用全局匹配:</span></span><br><span class="line">re.exec(s);      <span class="comment">// ['JavaScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['VBScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['JScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 29</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['ECMAScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 44</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// null，直到结束仍没有匹配到</span></span><br></pre></td></tr></table></figure></p>
-<p>全局匹配类似搜索，因此不能使用<code>/^...$/</code>，那样只会最多匹配一次</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1914,7 +1882,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1932,7 +1900,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

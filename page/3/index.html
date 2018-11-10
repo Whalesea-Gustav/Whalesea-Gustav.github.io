@@ -281,6 +281,272 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/15/CSS实现导航条Tab切换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/15/CSS实现导航条Tab切换/" itemprop="url">
+                  CSS实现导航条Tab切换
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T19:47:39+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CSS实现导航条Tab切换"><a href="#CSS实现导航条Tab切换" class="headerlink" title="CSS实现导航条Tab切换"></a>CSS实现导航条Tab切换</h1><p><a href="https://www.cnblogs.com/xiaohuochai/p/6275647.html" target="_blank" rel="noopener">源博客地址</a></p>
+<hr>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>模块整体叫做导航. 由导航标题盒导航内容组成，要实现上图所示布局效果，有两种布局方法：</p>
+<ul>
+<li>语义布局</li>
+<li>视觉布局</li>
+</ul>
+<hr>
+<h3 id="语义布局"><a href="#语义布局" class="headerlink" title="语义布局"></a>语义布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span>,<span class="selector-tag">p</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">h2</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">font-size</span>:<span class="number">100%</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">ul</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;<span class="attribute">list-style</span>: none;&#125;   </span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span>&#123;<span class="attribute">text-decoration</span>: none;<span class="attribute">color</span>:inherit;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.box</span>&#123;<span class="attribute">width</span>: <span class="number">572px</span>;<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;<span class="attribute">overflow</span>: hidden;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.nav</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">1px</span>;<span class="attribute">font</span>: <span class="number">14px</span> <span class="string">"微软雅黑"</span>;<span class="attribute">overflow</span>: hidden;<span class="attribute">background-color</span>: <span class="number">#f1f1f1</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.navI</span>&#123;<span class="attribute">float</span>: left;<span class="attribute">width</span>: <span class="number">33.333%</span>;<span class="attribute">box-sizing</span>: border-box;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.navI-tit</span>&#123;<span class="attribute">line-height</span>: <span class="number">40px</span>;<span class="attribute">text-align</span>: center;<span class="attribute">cursor</span>: pointer;<span class="attribute">border-left</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.navI-txt</span>&#123;<span class="attribute">width</span>: <span class="number">572px</span>;<span class="attribute">height</span>:<span class="number">200px</span>;<span class="attribute">text-indent</span>:<span class="number">2em</span>;<span class="attribute">line-height</span>: <span class="number">2</span>;<span class="attribute">background</span>:<span class="number">#fff</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.ml1</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">100%</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.ml2</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">200%</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.navI_active</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">z-index</span>:<span class="number">1</span>;&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI navI_active"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span>&gt;</span>课程<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt"</span>&gt;</span>课程内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span>&gt;</span>学习计划<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt ml1"</span>&gt;</span>学习计划内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span>&gt;</span>技能图谱<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt ml2"</span>&gt;</span>技能图谱内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>box-sizing: border-box</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">content-box</td>
+<td style="text-align:center">default。宽度和高度分别应用到元素的内容框。</td>
+</tr>
+<tr>
+<td style="text-align:center">border-box</td>
+<td style="text-align:center">为元素设定的宽度和高度决定了元素的边框盒- 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制</td>
+</tr>
+<tr>
+<td style="text-align:center">inherit</td>
+<td style="text-align:center">规定应从父元素继承 box-sizing 属性的值</td>
+</tr>
+</tbody>
+</table>
+<p><code>cursor: pointer</code></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>需使用的自定义光标的 URL</td>
+</tr>
+<tr>
+<td>default</td>
+<td>默认光标</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>浏览器设置光标</td>
+</tr>
+<tr>
+<td>pointer</td>
+<td>呈现为指示链接的指针</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>显示程序正忙</td>
+</tr>
+</tbody>
+</table>
+<p>Z-index 仅能在<strong>定位元素</strong>上奏效</p>
+<p>简单来说. </p>
+<ol>
+<li>做出横向的三个按钮</li>
+<li>对于按钮下的文本设置填充整个tag页面</li>
+<li>将第二，三个页面文本向左移动，和第一个文本重合</li>
+<li>设置<code>.navI_activate</code>页面<code>z-index</code>为1 （position也要设置为relative）</li>
+</ol>
+<hr>
+<h3 id="视觉布局"><a href="#视觉布局" class="headerlink" title="视觉布局"></a>视觉布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span>,<span class="selector-tag">p</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">ul</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;<span class="attribute">list-style</span>: none;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span>&#123;<span class="attribute">text-decoration</span>: none;<span class="attribute">color</span>: inherit;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.box</span>&#123;<span class="attribute">width</span>:<span class="number">572px</span>;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#999</span>;<span class="attribute">font</span>:<span class="number">14px</span> <span class="string">"微软雅黑"</span>;<span class="attribute">overflow</span>:hidden;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.nav-tit</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">1px</span>;<span class="attribute">height</span>: <span class="number">40px</span>;<span class="attribute">line-height</span>: <span class="number">40px</span>;<span class="attribute">text-align</span>: center;<span class="attribute">background-color</span>: <span class="number">#f1f1f1</span>;<span class="attribute">overflow</span>: hidden;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.nav-titI</span>&#123;<span class="attribute">box-sizing</span>: border-box;<span class="attribute">float</span>: left;<span class="attribute">width</span>: <span class="number">33.333%</span>;<span class="attribute">border-left</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;<span class="attribute">cursor</span>: pointer;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.nav-txt</span>&#123;<span class="attribute">height</span>: <span class="number">200px</span>;<span class="attribute">text-indent</span>: <span class="number">2em</span>; <span class="attribute">line-height</span>: <span class="number">2</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.nav-txtI</span>&#123;<span class="attribute">height</span>: <span class="number">200px</span>;&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"nav-tit"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"nav-titI"</span>&gt;</span>课程<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"nav-titI"</span>&gt;</span>学习计划<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"nav-titI"</span>&gt;</span>技能图谱<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav-txt"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"nav-txtI nav-txtI_active"</span>&gt;</span>课程内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"nav-txtI"</span>&gt;</span>学习计划内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"nav-txtI"</span>&gt;</span>技能图谱内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>将<code>nav-tit</code>浮动布局形成宽度为1/3的按钮</li>
+<li><code>nav-txt</code>设置一定高度k</li>
+<li>将<code>nav-textI-active</code>设置成高度k</li>
+</ol>
+<hr>
+<h2 id="hover"><a href="#hover" class="headerlink" title="hover"></a>hover</h2><p>导航条的功能就是点击导航标题时，显示对应的导航内容，如果使用:hover伪类实现类似效果，使用第一种布局方式-语义布局比较合适</p>
+<hr>
+<h3 id="语义布局-1"><a href="#语义布局-1" class="headerlink" title="语义布局"></a>语义布局</h3><p>在语义布局中，三个导航内容处于重叠状态。</p>
+<ol>
+<li>移入父元素 <code>.navI</code>时，触发鼠标的hover态</li>
+<li>触发时使元素添加<code>positon: relative</code>和<code>z-index: 1</code></li>
+<li>从而提升了子元素<code>p</code>层级<code>z-index</code> 父元素层级高则在重叠中显示在最上面</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navI</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navI</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.navI-tit</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点 : </p>
+<ol>
+<li><p>初始状态时，第一个导航标题无法实现默认被选中的状态(背景白色，无下划线)；</p>
+</li>
+<li><p>鼠标移出导航模块时，导航内容部分无法固定，显示第一个导航内容；</p>
+</li>
+<li><p>鼠标移出导航模块时，导航标题的样式无法固定，恢复到默认状态</p>
+</li>
+</ol>
+<hr>
+<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>实现导航条的关键在于如何建立导航标题和导航内容之间的联系，而锚点就可以实现类似的效果。通过点击锚点，页面生成一个哈希值，然后跳转到相应的内容位置</p>
+<hr>
+<h3 id="使用语义布局"><a href="#使用语义布局" class="headerlink" title="使用语义布局"></a>使用语义布局</h3><ol>
+<li>利用锚点a指向#id的<code>navI-txt</code></li>
+<li>设置:target使得z-index为1</li>
+<li>通过某种方式使得 <code>.navI-txt:target</code>能让<code>.navI-tit</code>变化</li>
+</ol>
+<p>比较方便的办法是将<code>.navI-txt</code> 放在 <code>.navI-tit</code>上面，那么可以使用兄弟选择器设置<code>.navI-txt:target ~ .nav-tit</code>来改变相应的锚点的样式，那么需要将html进行重构</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI navI_active"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt"</span> <span class="attr">id</span>=<span class="string">"kc"</span>&gt;</span>课程内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span> <span class="attr">href</span>=<span class="string">"#kc"</span>&gt;</span>课程<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt ml1"</span> <span class="attr">id</span>=<span class="string">"xx"</span>&gt;</span>学习计划内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span> <span class="attr">href</span>=<span class="string">"#xx"</span>&gt;</span>学习计划<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"navI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"navI-txt ml2"</span> <span class="attr">id</span>=<span class="string">"jn"</span>&gt;</span>技能图谱内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navI-tit"</span> <span class="attr">href</span>=<span class="string">"#jn"</span>&gt;</span>技能图谱<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将上列的html样式变成原来的样式，就需要对<code>a</code>锚点设置绝对位置，对导航内容设置<code>margin-top</code>来避开<code>a</code>的内容</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">p</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-tag">h2</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">font-size</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;<span class="attribute">padding</span>: <span class="number">0</span>;<span class="attribute">list-style</span>: none;&#125;   </span><br><span class="line"><span class="selector-tag">a</span>&#123;<span class="attribute">text-decoration</span>: none;<span class="attribute">color</span>:inherit;&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;<span class="attribute">width</span>: <span class="number">572px</span>;<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;<span class="attribute">overflow</span>: hidden;&#125;</span><br><span class="line"><span class="selector-class">.nav</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">1px</span>;<span class="attribute">font</span>: <span class="number">14px</span> <span class="string">"微软雅黑"</span>;<span class="attribute">overflow</span>: hidden;<span class="attribute">background-color</span>: <span class="number">#f1f1f1</span>;&#125;</span><br><span class="line"><span class="selector-class">.navI</span>&#123;<span class="attribute">float</span>: left;<span class="attribute">width</span>: <span class="number">33.333%</span>;<span class="attribute">box-sizing</span>: border-box;<span class="attribute">position</span>:relative;&#125;</span><br><span class="line"><span class="selector-class">.navI-tit</span>&#123;<span class="attribute">position</span>:absolute;<span class="attribute">top</span>:<span class="number">0</span>;<span class="attribute">left</span>:<span class="number">0</span>;<span class="attribute">right</span>:<span class="number">0</span>;<span class="attribute">box-sizing</span>: border-box;<span class="attribute">line-height</span>: <span class="number">40px</span>;<span class="attribute">height</span>: <span class="number">40px</span>;<span class="attribute">text-align</span>: center;<span class="attribute">cursor</span>: pointer;<span class="attribute">border-left</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#cecece</span>;&#125;</span><br><span class="line"><span class="selector-class">.navI-txt</span>&#123;<span class="attribute">width</span>: <span class="number">572px</span>;<span class="attribute">height</span>:<span class="number">200px</span>;<span class="attribute">margin-top</span>: <span class="number">40px</span>;<span class="attribute">text-indent</span>:<span class="number">2em</span>;<span class="attribute">line-height</span>: <span class="number">2</span>;<span class="attribute">background</span>:<span class="number">#fff</span>;&#125;</span><br><span class="line"><span class="selector-class">.ml1</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-class">.ml2</span>&#123;<span class="attribute">margin-left</span>: -<span class="number">200%</span>;&#125;</span><br><span class="line"><span class="selector-class">.navI_active</span>&#123;<span class="attribute">z-index</span>:<span class="number">1</span>;&#125;</span><br><span class="line"><span class="comment">/*重点代码*/</span></span><br><span class="line"><span class="selector-class">.navI-txt</span><span class="selector-pseudo">:target</span>&#123;<span class="attribute">position</span>:relative;<span class="attribute">z-index</span>:<span class="number">1</span>;&#125;</span><br><span class="line"><span class="selector-class">.navI-txt</span><span class="selector-pseudo">:target</span> ~ <span class="selector-class">.navI-tit</span>&#123;<span class="attribute">background</span>:<span class="number">#fff</span>;<span class="attribute">border-bottom</span>:none;&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的几点是</p>
+<ol>
+<li><code>positon: absolute；</code>是相对于已被定位的父元素来进行绝对定位</li>
+<li><code>z-index: 1；</code>也需要该元素进行定位，如果不要具体改动可以设置<code>position: relative</code></li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>初始态默认选中的导航标题样式无法设置；</li>
+<li>改变了HTML结构；</li>
+<li>锚点技术本身的局限是锚点目标会尽可能的到达可视区域上方，从而可能会生成页面跳动</li>
+</ol>
+<p>其实在原有的界面上也可以实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navI-tit</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.navI-tit</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.navI-txt</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>:relative;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="视觉布局-1"><a href="#视觉布局-1" class="headerlink" title="视觉布局"></a>视觉布局</h3><p> 在视觉布局中，<strong>三个导航内容属于同一个父元素</strong>，与父元素的高度相同，并按照块级元素的排列方式进行排布，<strong>父元素设置溢出隐藏时，默认只显示第一个导航内容</strong></p>
+<p>所以之前写好的视觉布局如果加上锚点，<code>navI-txt</code>中设置<code>overflow: hidden</code>自动满足标签页样式</p>
+<p>下列可以让标签页样式更加酷炫</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">. <span class="selector-tag">nav-txt</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  &#125;</span><br><span class="line">. <span class="selector-tag">nav-titI</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  	<span class="attribute">background-color</span>: white;</span><br><span class="line">  	<span class="attribute">border-bottom</span>: none;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/13/盒模型-外边距重叠/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,7 +880,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -632,7 +898,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
