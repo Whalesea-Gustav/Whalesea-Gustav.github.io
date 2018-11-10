@@ -281,6 +281,175 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/20/方法-对象中的函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/20/方法-对象中的函数/" itemprop="url">
+                  方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T23:58:39+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="方法-对象中绑定函数"><a href="#方法-对象中绑定函数" class="headerlink" title="方法 - 对象中绑定函数"></a>方法 - 对象中绑定函数</h2><p>在一个对象中绑定函数，则称之为方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var xiaoming = &#123;</span><br><span class="line">    name : &apos;小明‘，</span><br><span class="line">    birth : 1990</span><br><span class="line">    age: function() &#123;</span><br><span class="line">            var y = new Data().getFullYear();</span><br><span class="line">            return y - this.birth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.age; // fuction xiaoing.age</span><br><span class="line">xiaoming.age(); //2018 - 1990</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h2><p>绑定到对象的函数成为方法，但在内部使用了一个this关键字，对就是那个this/self<br><code>this</code>是一个特殊变量，它始终指向当前对象。访问同一对象的其他属性时，需要用到<code>this</code>变量。</p>
+<h3 id="this关键字的坑"><a href="#this关键字的坑" class="headerlink" title="this关键字的坑"></a>this关键字的坑</h3><p>this的指向很迷<br>JavaScript函数内部调用的<code>this</code>，其所指的对象视情况而定</p>
+<ol>
+<li>如果被对象的方式调用，则只想被调用的对象 </li>
+<li><strong>如果单独调用，则<code>this</code>指向全局对象，也就是<code>windows</code></strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear();</span><br><span class="line">    <span class="keyword">return</span> y - <span class="keyword">this</span>.birth;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    age: getAge</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.age() <span class="comment">// 2018 - 1990</span></span><br><span class="line">getAge(); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>甚至以下情况也会错误</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = xiaoming.age;</span><br><span class="line">fn(); <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+<h4 id="obj-xxx来调用正确的this"><a href="#obj-xxx来调用正确的this" class="headerlink" title="obj.xxx来调用正确的this"></a><code>obj.xxx</code>来调用正确的<code>this</code></h4><p>要保证<code>this</code>指向正确，一定要用<code>obj.xxx</code>来调用正确的<code>this</code></p>
+<p>ECMA决定，在strict模式下，让函数模式下的<code>this</code>指向<code>undefined</code>，因此，在strict的模式下，会<code></code>raise Error`</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    age: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear();</span><br><span class="line">        <span class="keyword">return</span> y - <span class="keyword">this</span>.birth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = xiaoming.age;</span><br><span class="line">fn(); <span class="comment">// Uncaught TypeError: Cannot read property 'birth' of undefined</span></span><br></pre></td></tr></table></figure>
+<h4 id="方法的this-方法内部函数的this"><a href="#方法的this-方法内部函数的this" class="headerlink" title="方法的this/方法内部函数的this"></a>方法的this/方法内部函数的this</h4><p>方法内部函数中的<code>this</code>又指向<code>udnefined</code> / 在非<code>strict</code>模式下，指向<code>window</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    age: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getAgeFromBirth</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear();</span><br><span class="line">            <span class="keyword">return</span> y - <span class="keyword">this</span>.birth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> getAgeFromBirth();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.age(); <span class="comment">// Uncaught TypeError: Cannot read property 'birth' of undefined</span></span><br></pre></td></tr></table></figure>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>用<code>that</code>变量捕获<code>this</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoing = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    age: fuction () &#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    fucntion getAgeFromBirth() &#123;</span><br><span class="line">        <span class="keyword">var</span> y = <span class="keyword">new</span> Data().getFullYear();</span><br><span class="line">        <span class="keyword">return</span> y - that.birth;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xiaoing.age; <span class="comment">// 2018 - 1990</span></span><br></pre></td></tr></table></figure>
+<p>在<code>var that = this;</code>（方法内部使用this赋值给that）后，在方法内部函数中，可以放心地调用that。</p>
+<hr>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>函数本身具有<code>apply</code>方法，接受两个参数 - 1，需要绑定<code>this</code>的变量。2，<code>Array</code>，表示本来要传传递给函数的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fucntion getAge() &#123;</span><br><span class="line">    <span class="keyword">var</span> y = <span class="keyword">new</span> Data().getFullYear();</span><br><span class="line">    <span class="keyword">return</span> y - <span class="keyword">this</span>.birth;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    age: getAge</span><br><span class="line">&#125;;</span><br><span class="line">xioaming.age(); <span class="comment">//25</span></span><br><span class="line">getAge.apple(xiaoming,[]); <span class="comment">//传递空Array, apply指定this指向xiaoming</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><p>与<code>apply</code>类似，区别在于</p>
+<ol>
+<li><code>fucntion.apply()</code> 把传递给function的参数打包在一个<code>Array</code>中</li>
+<li><code>call()</code>把参数按顺序传入</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</span><br><span class="line"><span class="built_in">Math</span>.max.call(<span class="literal">null</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/19/变量作用域和解构赋值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1794,152 +1963,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/13/盒模型-外边距重叠/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/13/盒模型-外边距重叠/" itemprop="url">
-                  盒模型-外边距重叠
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T15:32:39+08:00">
-                2018-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Margin-Collapse"><a href="#Margin-Collapse" class="headerlink" title="Margin Collapse"></a>Margin Collapse</h1><p><br></p>
-<p>外边距叠加指:<strong>在普通文档流中，两个块级元素的垂直外边距会发生叠加</strong>。</p>
-<p>当一个块元素在另一个块元素上时， 两者之间的外边距由<em>在上方的</em>  <code>margin-bottom</code>和<em>在下方的</em>  <code>margin-top</code>中最大的值来决定</p>
-<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_1.gif" alt="margin collapse"></p>
-<p>一个块级元素包含在另一个块级元素内，且内部的块级元素没有<abbr title="padding">内边距</abbr>和<abbr title="border">边框</abbr>， 那么他的顶底外边距会和外部元素的顶底外边距进行叠加</p>
-<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_2.gif" alt="inside block elements"></p>
-<p>只有在普通文档流中， 块级元素的外边距才会发生外边距叠加，行内框，绝对定位框，浮动框并不会进行外边距叠加</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1989,7 +2012,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2007,7 +2030,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

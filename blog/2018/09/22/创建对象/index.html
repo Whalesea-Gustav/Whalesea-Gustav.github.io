@@ -115,13 +115,13 @@
 <meta property="og:site_name" content="whalesea`s blog">
 <meta property="og:description" content="a protype-based languageJavaScript is often described as a prototype-based language — each object has a prototype object这些原型作为模板对象，其属性被创建的对象继承一个对象的原型也有原型，这构成了一个原型链。 当访问对象的属性，方法时，首先在该对象上寻找方法，如果没有找到，就上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/00143529922671163eebb527bc14547ac11363bf186557d000/l">
-<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001435299854512faf32868f60348be878982909b5a5d04000/l">
-<meta property="og:updated_time" content="2018-10-23T14:19:45.031Z">
+<meta property="og:image" content="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png">
+<meta property="og:image" content="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png">
+<meta property="og:updated_time" content="2018-10-25T11:17:56.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建对象">
 <meta name="twitter:description" content="a protype-based languageJavaScript is often described as a prototype-based language — each object has a prototype object这些原型作为模板对象，其属性被创建的对象继承一个对象的原型也有原型，这构成了一个原型链。 当访问对象的属性，方法时，首先在该对象上寻找方法，如果没有找到，就上">
-<meta name="twitter:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/00143529922671163eebb527bc14547ac11363bf186557d000/l">
+<meta name="twitter:image" content="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png">
 
 
 
@@ -385,10 +385,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stdudent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"Hello, "</span> + <span class="keyword">this</span>.name + <span class="string">"!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">在JavaScript中，可以使用`</span><span class="keyword">new</span><span class="string">`关键字来调用这个函数，并 **返回一个对象**</span></span><br><span class="line"><span class="string">(new Date() : new Map() : new Set() : new RegExp())</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">"小明"</span>);</span><br><span class="line">xiaoming.name;     <span class="comment">// "小明"</span></span><br><span class="line">xiaoming.hello();    <span class="comment">// "hello, 小明!"</span></span><br></pre></td></tr></table></figure>
 <p>如果不使用<code>new</code>，就是一个普通的函数，返回<code>undefined</code>； 如果使用<code>new</code>,函数成为构造函数，this指向新创建的对象，并默认返回this<br>xiaoming的原型链<br><strong><em>xioaming  ===&gt; Student.prototype ===&gt; Object.prototype ===&gt; null</em></strong><br> 如果又通过构造函数创建了其他对象，他们的原型相同<br><code>new Student()</code> 创建的对象还从原型上继承一个<code>constructor</code>属性，其等于构造函数<code>Student()</code>本身</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.constructor === Student.prototype.constructor;      <span class="comment">// true</span></span><br><span class="line">Student.prototype.constructor === Student;                            <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(xiaoming) === Student.prototype;       <span class="comment">//true</span></span><br><span class="line">xiaoming <span class="keyword">instanceof</span> Student                                                     <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/00143529922671163eebb527bc14547ac11363bf186557d000/l" alt="relationship"></p>
+<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="relationship"></p>
 <hr>
 <h1 id="shared-method"><a href="#shared-method" class="headerlink" title="shared method"></a>shared method</h1><p>构造函数定义的方法，虽然可能代码相同，但是在两个构造出的对象中，函数不等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.name;                                  <span class="comment">// '小明'</span></span><br><span class="line">xiaohong.name;                                  <span class="comment">// '小红'</span></span><br><span class="line">xiaoming.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaohong.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaoming.hello === xiaohong.hello;     <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
-<p>要创建一个共享的方法(类似于类的方法)，可以在原型上定义，这里就是在<code>Student.prototype</code>中定义<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001435299854512faf32868f60348be878982909b5a5d04000/l" alt="shared methods"></p>
+<p>要创建一个共享的方法(类似于类的方法)，可以在原型上定义，这里就是在<code>Student.prototype</code>中定义</p>
+<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="shared methods"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -511,7 +512,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -529,7 +530,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

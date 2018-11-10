@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="midnightTalk," />
+  <meta name="keywords" content="IDE," />
 
 
 
@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="哎，这一周真的经历了很多 有些时候，不经历过的情感，难以想象其中的痛苦 起码我活过来了，继续努力吧 最近也开始复习python了，每天看一两道算法题">
-<meta name="keywords" content="midnightTalk">
+<meta name="description" content="Breakpointdebugger runs the program but stop before step into the Breakpoint.  Step overexecute the encapsulated codes, and jump into next line (always used to run a entire code block, such as a fucnt">
+<meta name="keywords" content="IDE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LIFE IS STRANGE">
-<meta property="og:url" content="http://yoursite.com/blog/2018/10/16/pain/index.html">
+<meta property="og:title" content="Debugger">
+<meta property="og:url" content="http://yoursite.com/blog/2018/11/10/debugger/index.html">
 <meta property="og:site_name" content="whalesea`s blog">
-<meta property="og:description" content="哎，这一周真的经历了很多 有些时候，不经历过的情感，难以想象其中的痛苦 起码我活过来了，继续努力吧 最近也开始复习python了，每天看一两道算法题">
+<meta property="og:description" content="Breakpointdebugger runs the program but stop before step into the Breakpoint.  Step overexecute the encapsulated codes, and jump into next line (always used to run a entire code block, such as a fucnt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T13:14:09.971Z">
+<meta property="og:updated_time" content="2018-11-10T11:41:09.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LIFE IS STRANGE">
-<meta name="twitter:description" content="哎，这一周真的经历了很多 有些时候，不经历过的情感，难以想象其中的痛苦 起码我活过来了，继续努力吧 最近也开始复习python了，每天看一两道算法题">
+<meta name="twitter:title" content="Debugger">
+<meta name="twitter:description" content="Breakpointdebugger runs the program but stop before step into the Breakpoint.  Step overexecute the encapsulated codes, and jump into next line (always used to run a entire code block, such as a fucnt">
 
 
 
@@ -146,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/blog/2018/10/16/pain/"/>
+  <link rel="canonical" href="http://yoursite.com/blog/2018/11/10/debugger/"/>
 
 
 
 
 
-  <title> LIFE IS STRANGE | whalesea`s blog </title>
+  <title> Debugger | whalesea`s blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/16/pain/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/debugger/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -302,7 +302,7 @@
             
             
               
-                LIFE IS STRANGE
+                Debugger
               
             
           </h1>
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T21:12:34+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
+                2018-11-10
               </time>
             
 
@@ -340,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -375,10 +375,15 @@
       
 
       
-        <p>哎，这一周真的经历了很多</p>
-<p>有些时候，不经历过的情感，难以想象其中的痛苦</p>
-<p>起码我活过来了，继续努力吧</p>
-<p>最近也开始复习python了，每天看一两道算法题</p>
+        <h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>debugger runs the program but stop before step into the <code>Breakpoint</code>. </p>
+<h2 id="Step-over"><a href="#Step-over" class="headerlink" title="Step over"></a>Step over</h2><p>execute the encapsulated codes, and jump into next line</p>
+<p>(always used to run a entire code block, such as a fucntion / method, or something encapsulated)</p>
+<h2 id="Step-into"><a href="#Step-into" class="headerlink" title="Step into"></a>Step into</h2><p>execute the next line of codes, if it is a function or <code>blackbox</code>, run into it and execute the details of the encapsulated</p>
+<h2 id="Conditional-Breakpoint"><a href="#Conditional-Breakpoint" class="headerlink" title="Conditional Breakpoint"></a>Conditional Breakpoint</h2><p>set some condition(s) in the <code>breakpoint</code> e.g <code>if flag = True</code>, stop running on that <code>Breakpoint</code></p>
+<p>Used in normal condition or Branchs (<code>While</code> / <code>For Loop</code>) </p>
+<h2 id="Resume"><a href="#Resume" class="headerlink" title="Resume"></a>Resume</h2><p>Run the following codes </p>
+<p>(**If <code>breakpoint</code> is in a loop, resume will restart the code runing,  process a loop,  and finally stop on the <code>Breakpoint</code> again)</p>
+<p>Usually to test loops. </p>
 
       
     </div>
@@ -402,7 +407,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/midnightTalk/" rel="tag"># midnightTalk</a>
+            <a href="/tags/IDE/" rel="tag"># IDE</a>
           
         </div>
       
@@ -415,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/10/07/nand2tetris/" rel="next" title="FromNand2Tetris">
-                <i class="fa fa-chevron-left"></i> FromNand2Tetris
+              <a href="/blog/2018/10/24/which/" rel="next" title="which">
+                <i class="fa fa-chevron-left"></i> which
               </a>
             
           </div>
@@ -424,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/10/23/Vim-批量缩进/" rel="prev" title="批量缩进">
-                批量缩进 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -556,6 +566,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Breakpoint"><span class="nav-number">1.</span> <span class="nav-text">Breakpoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-over"><span class="nav-number">2.</span> <span class="nav-text">Step over</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-into"><span class="nav-number">3.</span> <span class="nav-text">Step into</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-Breakpoint"><span class="nav-number">4.</span> <span class="nav-text">Conditional Breakpoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resume"><span class="nav-number">5.</span> <span class="nav-text">Resume</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
