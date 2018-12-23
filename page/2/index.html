@@ -281,6 +281,157 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/创建对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/22/创建对象/" itemprop="url">
+                  创建对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T10:10:39+08:00">
+                2018-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="a-protype-based-language"><a href="#a-protype-based-language" class="headerlink" title="a protype-based language"></a>a protype-based language</h1><p>JavaScript is often described as <strong>a prototype-based language</strong> — each object has a prototype object<br>这些原型作为模板对象，其属性被创建的对象继承<br>一个对象的原型也有原型，这构成了一个<abbr titile="protypechain">原型链</abbr>。 当访问对象的属性，方法时，首先在该对象上寻找方法，如果没有找到，就上溯到原型对象中查找，如果遍历原型链也没有找到，则返回undefined<br>以<code>Array</code>为例，查找属性的原型链为<br><strong><em>var arr = [..]    ===&gt;  Array.prototype   ===&gt; Object.prototype ===&gt; null</em></strong><br><code>Array.prototype</code>定义了<code>indexOf()</code>，<code>shift()</code>等方法，因此可以在所有<code>Array</code>对象中调用这些方法</p>
+<hr>
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>JavaScript可以利用 <strong>构造函数</strong> 来创建对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stdudent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"Hello, "</span> + <span class="keyword">this</span>.name + <span class="string">"!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">在JavaScript中，可以使用`</span><span class="keyword">new</span><span class="string">`关键字来调用这个函数，并 **返回一个对象**</span></span><br><span class="line"><span class="string">(new Date() : new Map() : new Set() : new RegExp())</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">"小明"</span>);</span><br><span class="line">xiaoming.name;     <span class="comment">// "小明"</span></span><br><span class="line">xiaoming.hello();    <span class="comment">// "hello, 小明!"</span></span><br></pre></td></tr></table></figure>
+<p>如果不使用<code>new</code>，就是一个普通的函数，返回<code>undefined</code>； 如果使用<code>new</code>,函数成为构造函数，this指向新创建的对象，并默认返回this<br>xiaoming的原型链<br><strong><em>xioaming  ===&gt; Student.prototype ===&gt; Object.prototype ===&gt; null</em></strong><br> 如果又通过构造函数创建了其他对象，他们的原型相同<br><code>new Student()</code> 创建的对象还从原型上继承一个<code>constructor</code>属性，其等于构造函数<code>Student()</code>本身</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.constructor === Student.prototype.constructor;      <span class="comment">// true</span></span><br><span class="line">Student.prototype.constructor === Student;                            <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(xiaoming) === Student.prototype;       <span class="comment">//true</span></span><br><span class="line">xiaoming <span class="keyword">instanceof</span> Student                                                     <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="relationship"></p>
+<hr>
+<h1 id="shared-method"><a href="#shared-method" class="headerlink" title="shared method"></a>shared method</h1><p>构造函数定义的方法，虽然可能代码相同，但是在两个构造出的对象中，函数不等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.name;                                  <span class="comment">// '小明'</span></span><br><span class="line">xiaohong.name;                                  <span class="comment">// '小红'</span></span><br><span class="line">xiaoming.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaohong.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaoming.hello === xiaohong.hello;     <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>要创建一个共享的方法(类似于类的方法)，可以在原型上定义，这里就是在<code>Student.prototype</code>中定义</p>
+<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="shared methods"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/JSON/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1766,151 +1917,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/17/tired/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/17/tired/" itemprop="url">
-                  Tired
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T21:30:39+08:00">
-                2018-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有时候真的感觉好累啊</p>
-<p>但是我还能学！</p>
-<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcZT41RINpACTbqk6gtMChzUZIFcXK6t4xqHTpLlBDTErfEskwZQ" alt="life meaning"></p>
-<p>看了眼目标，做什么都不容易，先看看博客，做一些小demo，再去构建大的条目</p>
-<p><img src="https://camo.githubusercontent.com/6797bdc1a11d35369611c817bbd5dae9a162d775/68747470733a2f2f7261772e6769746875622e636f6d2f4a61636b736f6e5469616e2f666b732f6d61737465722f666967757265732f666b732e6a7067" alt="roap map"></p>
-<p><strong>我还能学！</strong><br><strong>我还能学！</strong><br><strong>我还能学！</strong><br><strong>我还能学！</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1960,7 +1966,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
