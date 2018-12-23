@@ -107,16 +107,17 @@
 
 
 
-<meta name="description" content="life is short, fuck the world">
-<meta property="og:type" content="website">
+<meta name="description" content="Modifier Class Package Subclass World     public Y Y Y Y   protected Y Y Y N   No Modifiler Y Y N N   private Y N N N     The first data column indicates whether the class itself has access to the">
+<meta property="og:type" content="article">
 <meta property="og:title" content="whalesea`s blog">
-<meta property="og:url" content="http://yoursite.com/tags/nand2tetris/index.html">
+<meta property="og:url" content="http://yoursite.com/blog/2018/11/27/Access Control/index.html">
 <meta property="og:site_name" content="whalesea`s blog">
-<meta property="og:description" content="life is short, fuck the world">
+<meta property="og:description" content="Modifier Class Package Subclass World     public Y Y Y Y   protected Y Y Y N   No Modifiler Y Y N N   private Y N N N     The first data column indicates whether the class itself has access to the">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-27T08:17:56.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="whalesea`s blog">
-<meta name="twitter:description" content="life is short, fuck the world">
+<meta name="twitter:description" content="Modifier Class Package Subclass World     public Y Y Y Y   protected Y Y Y N   No Modifiler Y Y N N   private Y N N N     The first data column indicates whether the class itself has access to the">
 
 
 
@@ -144,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/nand2tetris/"/>
+  <link rel="canonical" href="http://yoursite.com/blog/2018/11/27/Access Control/"/>
 
 
 
 
 
-  <title> 标签: nand2tetris | whalesea`s blog </title>
+  <title>  | whalesea`s blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +176,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,46 +270,199 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        nand2tetris
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/27/Access Control/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T14:34:37+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Class</th>
+<th>Package</th>
+<th>Subclass</th>
+<th>World</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td><em>No Modifiler</em></td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td>private</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>The first data column indicates whether the class itself has access to the member defined by the access level. As you can see, a class always has access to its own members. </p>
+</li>
+<li><p>The second column indicates whether classes in the same package as the class (regardless of their parentage) have access to the member. </p>
+</li>
+<li><p>The third column indicates <strong>whether subclasses of the class declared outside this package have access to the member</strong>.  Also named <em>package private</em></p>
+</li>
+<li><p>The fourth column indicates whether all classes have access to the member.</p>
+</li>
+</ul>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html/" target="_blank" rel="noopener">Access Control Tutorial</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/blog/2018/10/07/nand2tetris/" itemprop="url">
-              
-                <span itemprop="name">FromNand2Tetris</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-07T21:00:00+08:00"
-              content="2018-10-07" >
-          10-07
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/11/10/版本回退/" rel="next" title="版本回溯su">
+                <i class="fa fa-chevron-left"></i> 版本回溯su
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/12/23/习近平新时代中国特色社会主义思想/" rel="prev" title="习近平新时代中国特色社会主义思想及其地位">
+                习近平新时代中国特色社会主义思想及其地位 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -316,6 +470,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -525,6 +683,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
