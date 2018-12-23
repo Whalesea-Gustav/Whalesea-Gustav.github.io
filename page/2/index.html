@@ -281,6 +281,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/原型继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/09/22/原型继承/" itemprop="url">
+                  原型继承
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T23:42:39+08:00">
+                2018-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>当谈到继承时，JavaScript 只有一种结构：<strong>对象</strong>。每个实例对象（object ）都有一个私有属性 - <strong> <strong>proto</strong></strong> 指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节</p>
+<p><code>Student</code>构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="扩展原型链"><a href="#扩展原型链" class="headerlink" title="扩展原型链"></a>扩展原型链</h1><p>现在想基于<code>Student</code>扩展出<code>PrimaryStudent</code>, 可以先定义出<code>PrimaryStudent</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是调用了<code>Student</code>构造函数，并不等于继承了<code>Student</code><br><code>PrimaryStudent</code>所创建的对象的原型链是<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Object.prototype —-&gt; null</em></strong><br>事实上，基于<code>Student</code>拓展<code>PrimaryStudent</code>是想创建如下的原型链<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Student.prototype —-&gt; Obeject.prototy[e —-&gt; null</em></strong></p>
+<p>借助一个中间对象来实现正确的原型链，这个中间对象的原型要指向<code>Student.prototype</code>。这个中间对象可以<strong>使用空函数<code>F</code></strong>实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span> grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// F的原型指向Student的原型</span></span><br><span class="line">F.prototype = Student.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">//把PrimaryStudent的原型指向一个F对象，那么PrimaryStudent的原型就指向了Student的原型</span></span><br><span class="line">PrimaryStudent.prototype = <span class="keyword">new</span> F();</span><br><span class="line"><span class="comment">//把`PrimaryStudent`原型的`constructor`修复成`PrimaryStudent`</span></span><br><span class="line">PrimaryStudent.prototype.constructor = Primary;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此时可以在PrimaryStudent的原型(也就是new F())上定义新的方法</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = fucntion () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> PrimaryStudent( &#123;</span><br><span class="line">    name : <span class="string">'小明'</span>,</span><br><span class="line">    grade : <span class="number">2</span></span><br><span class="line">&#125;);</span><br><span class="line">xiaoming.name;              <span class="comment">//小明</span></span><br><span class="line">xiaoming.grade;              <span class="comment">// 2</span></span><br><span class="line">xiaoming.__proto__ === PrimaryStudent.prototype;      <span class="comment">// true</span></span><br><span class="line">xiaoming.__proto__.__proto__ ==Student.prototype;     <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf PrimaryStudent；                          <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf Student;                                          <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>下图是新的原型链的结构<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001439872160923ca15925ec79f4692a98404ddb2ed5503000/l" alt="relationship"></p>
+<p><code>new F()</code> 只是用来连接，并没有改变原有的<code>Student</code>定义的原链</p>
+<hr>
+<h1 id="用inherits封装"><a href="#用inherits封装" class="headerlink" title="用inherits封装"></a>用<code>inherits</code>封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherist</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.ptototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="PrimaryStudent-prototype-new-Student"><a href="#PrimaryStudent-prototype-new-Student" class="headerlink" title="PrimaryStudent.prototype = new Student()"></a>PrimaryStudent.prototype = new Student()</h1><p>不建议直接使用<code>PrimaryStudent.prototype = new Student()</code><br>先修改下Student的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name ? props.name : <span class="string">'Unnamed'</span>;</span><br><span class="line">    <span class="keyword">this</span>.height = <span class="number">170</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果正常继承，<code>PrimaryStudent.prototype</code>里面不能存在<code>Student</code>实例中才能存在的<code>height</code>和<code>name</code>。<br>如果使用了<code>PrimaryStudent.prototype = new Student()</code>，就会发现<code>PrimaryStudent.prototype</code>里面存在这两个属性。<br>如果使用的架桥函数<code>F</code>，则<code>PrimaryStudent.prototype</code>中只有<code>Student {constructor: ƒ, getGrade: ƒ}</code>两个方法。</p>
+<hr>
+<h1 id="Object-creat"><a href="#Object-creat" class="headerlink" title="Object.creat()"></a>Object.creat()</h1><p>不用架桥函数的办法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PrimaryStudent.prototype = <span class="built_in">Object</span>.create(Student.prototype)</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码和使用架桥函数的结果一样。</p>
+<p><code>Object.create</code>和架桥函数的办法，和使用 <code>new Student()</code>的区别在于<br>使用<code>Object.create</code>和架桥函数的时候，只会将<code>PrimaryStudent.prototype</code>中的<code>__proto__</code>指向<code>Student</code>这个函数的<strong>原型对象</strong> <code>Student.prototype</code><br>而使用<code>new Student()</code>的时候，<code>PrimaryStudent.prototype</code>指向的是<code>Student</code>这个函数对象的<strong>一个实例s</strong>，<code>Student</code>函数对象在实例化的时候，会完全拷贝一份<code>Student.prototype</code>，也会增加<code>Student</code>中的属性，比如<code>name</code></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>定义新的构造函数，利用<code>.call(this, otherParameter)</code>调用希望继承的构造函数，并绑定<code>this</code></li>
+<li>借助空函数<code>F()</code>实现原型继承，最好通过封装<code>inherits</code></li>
+<li>在新的构造函数原型上就可以定义新的方法</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/创建对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1753,170 +1917,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/18/数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/18/数组/" itemprop="url">
-                  数组
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T00:57:00+08:00">
-                2018-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="Array长度-Array-length"><a href="#Array长度-Array-length" class="headerlink" title="Array长度  Array.length"></a>Array长度  <code>Array.length</code></h2><p><strong>对<code>Array</code>长度直接赋值会导致<code>Array</code>大小变化</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr.length = <span class="number">6</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2]</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="可以使用索引对array进行修改"><a href="#可以使用索引对array进行修改" class="headerlink" title="可以使用索引对array进行修改"></a>可以使用索引对array进行修改</h2><p>如果通过索引赋值，<strong>索引超过范围，同样会引起<code>Array</code>大小的变化</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">'x'</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, 'x']</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h2><p>与<code>string</code>类似，<code>Array</code>可以通过<code>indexOf()</code>来搜索一个指定的元素位置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">'30'</span>, <span class="string">'xyz'</span>];</span><br><span class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></span><br><span class="line">arr.indexOf(<span class="number">20</span>); <span class="comment">// 元素20的索引为1</span></span><br><span class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></span><br><span class="line">arr.indexOf(<span class="string">'30'</span>); <span class="comment">// 元素'30'的索引为2</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><p><code>slice()</code>对应string的<code>substring()</code>，截取<code>Array</code>的部分元素，返回一个新的<code>Array</code></p>
-<p><strong>如果不给slice传递参数，则会复制一个array</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>];</span><br><span class="line"><span class="keyword">var</span> aCopy = arr.slice();</span><br><span class="line">aCopy; <span class="comment">// ['A', 'B', 'C', 'D', 'E', 'F', 'G']</span></span><br><span class="line">aCopy === arr; <span class="comment">// false 如果两个引用值同一个对象、数组或函数，则它们是相等。如果指向不同的对象，则它们是不等的。尽管两个对象具有完全一样的属性</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="push-和-pop"><a href="#push-和-pop" class="headerlink" title="push 和 pop"></a>push 和 pop</h2><p><code>push()</code>向末位增加若干元素，返回新<code>Array</code>的长度<br><code>pop()</code>把<code>Array</code>末尾元素删除掉 并返回这个值 如果是空数组，则返回<code>undefine</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.push(<span class="string">'A'</span>, <span class="string">'B'</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 'A', 'B']</span></span><br><span class="line">arr.pop(); <span class="comment">// pop()返回'B'</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 'A']</span></span><br><span class="line">arr.pop(); arr.pop(); arr.pop(); <span class="comment">// 连续pop 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.pop(); <span class="comment">// 空数组继续pop不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="unshift-和-shift"><a href="#unshift-和-shift" class="headerlink" title="unshift 和 shift"></a>unshift 和 shift</h2><p><code>unshift()</code>向<code>Array</code>头部添加若干元素，返回新<code>Array</code>的长度<br><code>shift()</code>把<code>Array</code>的第一个元素删除掉，并将其返回<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.unshift(<span class="string">'A'</span>, <span class="string">'B'</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// ['A', 'B', 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// 'A'</span></span><br><span class="line">arr; <span class="comment">// ['B', 1, 2]</span></span><br><span class="line">arr.shift(); arr.shift(); arr.shift(); <span class="comment">// 连续shift 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.shift(); <span class="comment">// 空数组继续shift不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p><code>sort</code> 对<code>Array</code>进行排序，直接修改<code>Array</code>的元素位置</p>
-<hr>
-<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h2><p><code>Array.reverse();</code>直接将整个Array元素反转</p>
-<hr>
-<h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h2><p><code>splice()</code>方法是修改Array的<strong>万能方法</strong>，它可以<strong>从指定的索引开始删除若干元素，然后再从该位置添加若干元素</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'Microsoft'</span>, <span class="string">'Apple'</span>, <span class="string">'Yahoo'</span>, <span class="string">'AOL'</span>, <span class="string">'Excite'</span>, <span class="string">'Oracle'</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素,然后再添加两个元素:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">'Google'</span>, <span class="string">'Facebook'</span>); <span class="comment">// 返回删除的元素 ['Yahoo', 'AOL', 'Excite']</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></span><br><span class="line"><span class="comment">// 只删除,不添加:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// ['Google', 'Facebook']</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Oracle']</span></span><br><span class="line"><span class="comment">// 只添加,不删除:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">'Google'</span>, <span class="string">'Facebook'</span>); <span class="comment">// 返回[],因为没有删除任何元素</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><p><code>concat()</code>将当前的<code>Array</code>和另外一个<code>Array</code>连接起来，返回一个新的<code>Array</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr1.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br></pre></td></tr></table></figure></p>
-<p><strong><code>concat()</code>方法并没有修改当前<code>Array</code>，而是返回了一个新的<code>Array</code></strong></p>
-<p><code>concat()</code> 可以接受任意个元素或者<code>Array</code>，对于<code>Array</code>，会将其拆开，然后全部添加到新的<code>Array</code>中</p>
-<hr>
-<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><p><code>join(link-char)</code>它把当前的Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串<br>不改变原本<code>Array</code>的内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// ['A', 'B', 'C', 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1966,7 +1966,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
