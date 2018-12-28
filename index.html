@@ -281,6 +281,123 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/28/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/12/28/test/" itemprop="url">
+                  test
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T21:34:36+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/24/五位一体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1118,154 +1235,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/debugger/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/11/10/debugger/" itemprop="url">
-                  Debugger
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
-                2018-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>debugger runs the program but stop before step into the <code>Breakpoint</code>. </p>
-<h2 id="Step-over"><a href="#Step-over" class="headerlink" title="Step over"></a>Step over</h2><p>execute the encapsulated codes, and jump into next line</p>
-<p>(always used to run a entire code block, such as a fucntion / method, or something encapsulated)</p>
-<h2 id="Step-into"><a href="#Step-into" class="headerlink" title="Step into"></a>Step into</h2><p>execute the next line of codes, if it is a function or <code>blackbox</code>, run into it and execute the details of the encapsulated</p>
-<h2 id="Conditional-Breakpoint"><a href="#Conditional-Breakpoint" class="headerlink" title="Conditional Breakpoint"></a>Conditional Breakpoint</h2><p>set some condition(s) in the <code>breakpoint</code> e.g <code>if flag = True</code>, stop running on that <code>Breakpoint</code></p>
-<p>Used in normal condition or Branchs (<code>While</code> / <code>For Loop</code>) </p>
-<h2 id="Resume"><a href="#Resume" class="headerlink" title="Resume"></a>Resume</h2><p>Run the following codes </p>
-<p>(**If <code>breakpoint</code> is in a loop, resume will restart the code runing,  process a loop,  and finally stop on the <code>Breakpoint</code> again)</p>
-<p>Usually to test loops. </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/版本回退/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1397,6 +1366,154 @@
 <h2 id="回溯简单原理"><a href="#回溯简单原理" class="headerlink" title="回溯简单原理"></a>回溯简单原理</h2><p><code>Git</code> 内部有指向当前版本的<code>HEAD</code>指针，<code>reset</code> 命令让<code>Git</code>中<code>HEAD</code>指针进行切换，指向特定的版本号<br><em>当前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112922@2x.png" target="_blank" rel="noopener">now</a><br><em>回溯到之前版本</em><br><a href="https://www.fcwalkers.com/2018/03/29/GIT/GIT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/QQ20171117-112940@2x.png" target="_blank" rel="noopener">reset</a></p>
 <h3 id="reflog记录每一次命令"><a href="#reflog记录每一次命令" class="headerlink" title="reflog记录每一次命令"></a><code>reflog</code>记录每一次命令</h3><p>相对于记录<code>commit id</code>的<code>log</code>，<code>relog</code>帮助记录每一个命令，以及操作的<code>HEAD</code>指向对象</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git reflog -5 --pretty=oneline</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;0&#125;: reset: moving to42288d</span><br><span class="line">f40d786 HEAD@&#123;1&#125;: reset: moving to HEAD^</span><br><span class="line">42288d4 (HEAD -&gt; master, origin/master, origin/HEAD) HEAD@&#123;2&#125;: commit: 2rd submission of IntList, modify the null arguments conditiojns</span><br><span class="line">f40d786 HEAD@&#123;3&#125;: commit: add explanaition</span><br><span class="line">916759d HEAD@&#123;4&#125;: commit: 1st submission of Debug Practice Lab2</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/debugger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/11/10/debugger/" itemprop="url">
+                  Debugger
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
+                2018-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>debugger runs the program but stop before step into the <code>Breakpoint</code>. </p>
+<h2 id="Step-over"><a href="#Step-over" class="headerlink" title="Step over"></a>Step over</h2><p>execute the encapsulated codes, and jump into next line</p>
+<p>(always used to run a entire code block, such as a fucntion / method, or something encapsulated)</p>
+<h2 id="Step-into"><a href="#Step-into" class="headerlink" title="Step into"></a>Step into</h2><p>execute the next line of codes, if it is a function or <code>blackbox</code>, run into it and execute the details of the encapsulated</p>
+<h2 id="Conditional-Breakpoint"><a href="#Conditional-Breakpoint" class="headerlink" title="Conditional Breakpoint"></a>Conditional Breakpoint</h2><p>set some condition(s) in the <code>breakpoint</code> e.g <code>if flag = True</code>, stop running on that <code>Breakpoint</code></p>
+<p>Used in normal condition or Branchs (<code>While</code> / <code>For Loop</code>) </p>
+<h2 id="Resume"><a href="#Resume" class="headerlink" title="Resume"></a>Resume</h2><p>Run the following codes </p>
+<p>(**If <code>breakpoint</code> is in a loop, resume will restart the code runing,  process a loop,  and finally stop on the <code>Breakpoint</code> again)</p>
+<p>Usually to test loops. </p>
 
           
         
@@ -1868,160 +1985,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/07/nand2tetris/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/10/07/nand2tetris/" itemprop="url">
-                  FromNand2Tetris
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T21:00:00+08:00">
-                2018-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机组成原理/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机组成原理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>coursera：From nand to tetris，part I &amp; part II<br>该课程是由希伯来大学教授组织的网络课程，官网（<a href="http://www.nand2tetris.com）" target="_blank" rel="noopener">www.nand2tetris.com）</a><br>主要内容是教授<strong>计算机组成原理的基础知识</strong></p>
-<hr>
-<h1 id="推荐理由"><a href="#推荐理由" class="headerlink" title="推荐理由"></a>推荐理由</h1><ol>
-<li>课程特别编写了配套的程序，设计了特定的计算机语言来方便初学者学习基础知识</li>
-<li>给了一个很浅，但又具有广阔视野的对计算机的介绍<ul>
-<li>浅是因为每一个片段的知识都是比较基本的，对一些大学教材复杂的内容封装完，只给一个用户接口，每一章节也只有很少几个实现的作业</li>
-<li>深是涵盖的方面确实很广，第一周是基础的门，第二周是实现ALU计算单元，第三周实现寄存器和内容，第四周介绍一种简单的汇编语言，第五周综合一，二，三周内容实现一个CPU，第六周和第四周对应，实现一个assembler。作业量是每周3-4h，cpu那节课我写了好久好久，运气好debug一次过的情况下也写了有5个小时</li>
-</ul>
-</li>
-<li>虽然只学了part I， 但是总体感觉学的很爽，毕竟之前对这一块一无所知，作业难度设置也比较合理吧，满足敲键盘思考的需求</li>
-<li>1.25x 可以让人专心紧跟老师，不走神</li>
-</ol>
-<hr>
-<h1 id="未来视"><a href="#未来视" class="headerlink" title="未来视"></a>未来视</h1><p>个人将其定位是计算机组成原理的入门知识<br>之后主干的学习是CSAPP书配合CMU的视频/coursera UW的hardware-software interface，考研向还是主要采用王道或者哈工大/北邮的计算机组成原理</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2071,7 +2034,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
