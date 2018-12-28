@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-28T13:34:36.963Z</updated>
+  <updated>2018-12-28T15:31:20.559Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,16 +17,121 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com//blog/2018/12/28/test/"/>
-    <id>http://yoursite.com//blog/2018/12/28/test/</id>
-    <published>2018-12-28T13:34:36.000Z</published>
-    <updated>2018-12-28T13:34:36.963Z</updated>
+    <title>乙级 1003 我要通过</title>
+    <link href="http://yoursite.com//blog/2018/12/28/B1003/"/>
+    <id>http://yoursite.com//blog/2018/12/28/B1003/</id>
+    <published>2018-12-28T15:22:00.000Z</published>
+    <updated>2018-12-28T15:31:20.559Z</updated>
     
     <summary type="html">
     
+      
+      
+        
+        
+          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;得到“答案正确”的条件是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;字符串中必须仅有 P、 A、
+        
+      
+    
     </summary>
     
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>乙级 1002 写出这个数</title>
+    <link href="http://yoursite.com//blog/2018/12/28/B1002/"/>
+    <id>http://yoursite.com//blog/2018/12/28/B1002/</id>
+    <published>2018-12-28T14:19:00.000Z</published>
+    <updated>2018-12-28T15:31:18.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;br&gt;每个测试输入包含 1
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>乙级 1001 害死人不偿命的(3n+1)猜想</title>
+    <link href="http://yoursite.com//blog/2018/12/28/B1001/"/>
+    <id>http://yoursite.com//blog/2018/12/28/B1001/</id>
+    <published>2018-12-28T13:46:00.000Z</published>
+    <updated>2018-12-28T15:31:19.764Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 n=1。卡拉兹在 1950
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客迁移</title>
+    <link href="http://yoursite.com//blog/2018/12/28/test/"/>
+    <id>http://yoursite.com//blog/2018/12/28/test/</id>
+    <published>2018-12-28T13:34:36.000Z</published>
+    <updated>2018-12-28T15:31:59.785Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/White_Idiot/article/details/80685990&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
@@ -156,6 +261,32 @@
   </entry>
   
   <entry>
+    <title>Debugger</title>
+    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
+    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
+    <published>2018-11-10T11:22:00.000Z</published>
+    <updated>2018-11-10T11:41:09.488Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>版本回溯su</title>
     <link href="http://yoursite.com//blog/2018/11/10/%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/"/>
     <id>http://yoursite.com//blog/2018/11/10/版本回退/</id>
@@ -179,32 +310,6 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debugger</title>
-    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
-    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
-    <published>2018-11-10T11:22:00.000Z</published>
-    <updated>2018-11-10T11:41:09.488Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
     
   </entry>
   
@@ -485,93 +590,6 @@
         
           &lt;hr&gt;
 &lt;h2 id=&quot;方法-对象中绑定函数&quot;&gt;&lt;a href=&quot;#方法-对象中绑定函数&quot; class=&quot;headerlink&quot; title=&quot;方法 - 对象中绑定函数&quot;&gt;&lt;/a&gt;方法 -
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>变量作用域与解构赋值</title>
-    <link href="http://yoursite.com//blog/2018/09/19/%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
-    <id>http://yoursite.com//blog/2018/09/19/变量作用域和解构赋值/</id>
-    <published>2018-09-19T12:06:00.000Z</published>
-    <updated>2018-10-23T14:21:42.630Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h2 id=&quot;var声明的变量具有作用域&quot;&gt;&lt;a href=&quot;#var声明的变量具有作用域&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>映射和集合</title>
-    <link href="http://yoursite.com//blog/2018/09/18/%E6%98%A0%E5%B0%84%E5%92%8C%E9%9B%86%E5%90%88/"/>
-    <id>http://yoursite.com//blog/2018/09/18/映射和集合/</id>
-    <published>2018-09-18T13:21:00.000Z</published>
-    <updated>2018-10-23T14:21:15.639Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h2 id=&quot;Map-映射&quot;&gt;&lt;a href=&quot;#Map-映射&quot; class=&quot;headerlink&quot; title=&quot;Map 映射&quot;&gt;&lt;/a&gt;Map
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>对象</title>
-    <link href="http://yoursite.com//blog/2018/09/18/%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://yoursite.com//blog/2018/09/18/对象/</id>
-    <published>2018-09-18T11:26:39.000Z</published>
-    <updated>2018-10-23T14:20:53.208Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h1 id=&quot;JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成&quot;&gt;&lt;a href=&quot;#JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成&quot; class=&quot;headerlink&quot;
         
       
     
