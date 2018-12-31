@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-28T15:31:20.559Z</updated>
+  <updated>2018-12-31T13:50:59.345Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>赌徒</title>
+    <link href="http://yoursite.com//blog/2018/12/31/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com//blog/2018/12/31/年终总结/</id>
+    <published>2018-12-31T15:59:59.000Z</published>
+    <updated>2018-12-31T13:50:59.345Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;18年并不美好&lt;/p&gt;
+&lt;p&gt;第一次有人告诉我，选择比努力重要，如果在人生的岔路口选择错了，可能要付出几倍的努力都不足以出来。&lt;br&gt;“那便付出几倍的努力。”
+        
+      
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+    
+      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
+    
+  </entry>
   
   <entry>
     <title>乙级 1003 我要通过</title>
@@ -261,32 +288,6 @@
   </entry>
   
   <entry>
-    <title>Debugger</title>
-    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
-    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
-    <published>2018-11-10T11:22:00.000Z</published>
-    <updated>2018-11-10T11:41:09.488Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>版本回溯su</title>
     <link href="http://yoursite.com//blog/2018/11/10/%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/"/>
     <id>http://yoursite.com//blog/2018/11/10/版本回退/</id>
@@ -310,6 +311,32 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debugger</title>
+    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
+    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
+    <published>2018-11-10T11:22:00.000Z</published>
+    <updated>2018-11-10T11:41:09.488Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
     
   </entry>
   
@@ -425,9 +452,9 @@
       <category term="计算机组成原理" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="nand2tetris" scheme="http://yoursite.com/tags/nand2tetris/"/>
-    
       <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
+    
+      <category term="nand2tetris" scheme="http://yoursite.com/tags/nand2tetris/"/>
     
   </entry>
   
@@ -561,35 +588,6 @@
         
           &lt;hr&gt;
 &lt;h2 id=&quot;正则表达式知识&quot;&gt;&lt;a href=&quot;#正则表达式知识&quot; class=&quot;headerlink&quot; title=&quot;正则表达式知识&quot;&gt;&lt;/a&gt;正则表达式知识&lt;/h2&gt;&lt;h3 id=&quot;正则表达式基础&quot;&gt;&lt;a href=&quot;#正则表达式基础&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>方法</title>
-    <link href="http://yoursite.com//blog/2018/09/20/%E6%96%B9%E6%B3%95-%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/"/>
-    <id>http://yoursite.com//blog/2018/09/20/方法-对象中的函数/</id>
-    <published>2018-09-20T15:58:39.000Z</published>
-    <updated>2018-10-23T14:21:05.053Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h2 id=&quot;方法-对象中绑定函数&quot;&gt;&lt;a href=&quot;#方法-对象中绑定函数&quot; class=&quot;headerlink&quot; title=&quot;方法 - 对象中绑定函数&quot;&gt;&lt;/a&gt;方法 -
         
       
     
