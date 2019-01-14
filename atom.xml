@@ -118,7 +118,7 @@
     <link href="http://yoursite.com//blog/2019/01/07/B1004/"/>
     <id>http://yoursite.com//blog/2019/01/07/B1004/</id>
     <published>2019-01-07T12:02:00.000Z</published>
-    <updated>2019-01-14T12:44:52.425Z</updated>
+    <updated>2019-01-14T12:51:55.187Z</updated>
     
     <summary type="html">
     
@@ -126,8 +126,8 @@
       
         
         
-          &lt;p&gt;##描述&lt;br&gt;读入 n（&amp;gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学&lt;/p&gt;
-&lt;p&gt;##Code&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;读入 n（&amp;gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学&lt;/p&gt;
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a
         
       
     
