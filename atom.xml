@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-31T13:50:59.345Z</updated>
+  <updated>2019-01-14T12:49:11.524Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,136 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>乙级 1019 数字黑洞</title>
+    <link href="http://yoursite.com//blog/2019/01/14/B1019/"/>
+    <id>http://yoursite.com//blog/2019/01/14/B1019/</id>
+    <published>2019-01-14T12:45:00.000Z</published>
+    <updated>2019-01-14T12:49:11.524Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;给定任一个各位数字不完全相同的 4 位正整数，如果我们先把 4 个数字按非递增排序，再按非递减排序，然后用第 1 个数字减第 2
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>乙级 1018 剪刀锤子布</title>
+    <link href="http://yoursite.com//blog/2019/01/14/B1018/"/>
+    <id>http://yoursite.com//blog/2019/01/14/B1018/</id>
+    <published>2019-01-14T05:45:00.000Z</published>
+    <updated>2019-01-14T12:45:03.716Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大&lt;/p&gt;
+&lt;p&gt;输入:&lt;br&gt;输入第 1
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>乙级 1017 A除以B</title>
+    <link href="http://yoursite.com//blog/2019/01/13/B1017/"/>
+    <id>http://yoursite.com//blog/2019/01/13/B1017/</id>
+    <published>2019-01-13T10:48:00.000Z</published>
+    <updated>2019-01-14T12:44:57.841Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;要求计算 A/B，其中 A 是不超过 1000 位的正整数，B 是 1 位正整数。你需要输出商数 Q 和余数 R，使得
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>乙级 1004 成绩排名</title>
+    <link href="http://yoursite.com//blog/2019/01/07/B1004/"/>
+    <id>http://yoursite.com//blog/2019/01/07/B1004/</id>
+    <published>2019-01-07T12:02:00.000Z</published>
+    <updated>2019-01-14T12:44:52.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##描述&lt;br&gt;读入 n（&amp;gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学&lt;/p&gt;
+&lt;p&gt;##Code&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="PAT" scheme="http://yoursite.com/categories/PAT/"/>
+    
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
+  </entry>
   
   <entry>
     <title>赌徒</title>
@@ -295,6 +425,32 @@
   </entry>
   
   <entry>
+    <title>Debugger</title>
+    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
+    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
+    <published>2018-11-10T11:22:00.000Z</published>
+    <updated>2018-11-10T11:41:09.488Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>版本回溯su</title>
     <link href="http://yoursite.com//blog/2018/11/10/%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80/"/>
     <id>http://yoursite.com//blog/2018/11/10/版本回退/</id>
@@ -318,32 +474,6 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debugger</title>
-    <link href="http://yoursite.com//blog/2018/11/10/debugger/"/>
-    <id>http://yoursite.com//blog/2018/11/10/debugger/</id>
-    <published>2018-11-10T11:22:00.000Z</published>
-    <updated>2018-11-10T11:41:09.488Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Breakpoint&quot;&gt;&lt;a href=&quot;#Breakpoint&quot; class=&quot;headerlink&quot; title=&quot;Breakpoint&quot;&gt;&lt;/a&gt;Breakpoint&lt;/h2&gt;&lt;p&gt;debugger runs the program but stop
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="IDE" scheme="http://yoursite.com/tags/IDE/"/>
     
   </entry>
   
@@ -480,121 +610,6 @@
         
           &lt;hr&gt;
 &lt;h1 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h1&gt;&lt;p&gt;当谈到继承时，JavaScript 只有一种结构：&lt;strong&gt;对象&lt;/strong&gt;。每个实例对象（object
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建对象</title>
-    <link href="http://yoursite.com//blog/2018/09/22/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://yoursite.com//blog/2018/09/22/创建对象/</id>
-    <published>2018-09-22T02:10:39.000Z</published>
-    <updated>2018-10-25T11:17:56.333Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h1 id=&quot;a-protype-based-language&quot;&gt;&lt;a href=&quot;#a-protype-based-language&quot; class=&quot;headerlink&quot; title=&quot;a protype-based language&quot;&gt;&lt;/a&gt;a
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSON in JavaScript</title>
-    <link href="http://yoursite.com//blog/2018/09/22/JSON/"/>
-    <id>http://yoursite.com//blog/2018/09/22/JSON/</id>
-    <published>2018-09-21T18:00:00.000Z</published>
-    <updated>2018-10-23T14:19:13.871Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h1 id=&quot;JSON标准&quot;&gt;&lt;a href=&quot;#JSON标准&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="网络编程" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Font-end" scheme="http://yoursite.com/tags/Font-end/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美梦</title>
-    <link href="http://yoursite.com//blog/2018/09/22/%E7%BE%8E%E6%A2%A6/"/>
-    <id>http://yoursite.com//blog/2018/09/22/美梦/</id>
-    <published>2018-09-21T17:28:34.000Z</published>
-    <updated>2018-09-21T18:08:10.022Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;到家&quot;&gt;&lt;a href=&quot;#到家&quot; class=&quot;headerlink&quot; title=&quot;到家&quot;&gt;&lt;/a&gt;到家&lt;/h2&gt;&lt;p&gt;在八点，余温未褪，寒意未起，在最熟悉的床上，做了一个关于大学的梦啊。&lt;/p&gt;
-&lt;p&gt;很美好，很向往，很勇敢。&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式RegExp</title>
-    <link href="http://yoursite.com//blog/2018/09/21/RegExp/"/>
-    <id>http://yoursite.com//blog/2018/09/21/RegExp/</id>
-    <published>2018-09-20T17:10:00.000Z</published>
-    <updated>2018-10-23T14:19:30.581Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;h2 id=&quot;正则表达式知识&quot;&gt;&lt;a href=&quot;#正则表达式知识&quot; class=&quot;headerlink&quot; title=&quot;正则表达式知识&quot;&gt;&lt;/a&gt;正则表达式知识&lt;/h2&gt;&lt;h3 id=&quot;正则表达式基础&quot;&gt;&lt;a href=&quot;#正则表达式基础&quot;
         
       
     

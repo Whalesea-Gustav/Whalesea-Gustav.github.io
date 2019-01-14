@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/11/10/debugger/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/28/B1003/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -303,8 +303,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/11/10/debugger/" itemprop="url">
-                  Debugger
+                <a class="post-title-link" href="/blog/2018/12/28/B1003/" itemprop="url">
+                  乙级 1003 我要通过
                 </a>
               
             
@@ -320,8 +320,449 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T19:22:00+08:00">
-                2018-11-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T23:22:00+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>得到“答案正确”的条件是：</p>
+<ol>
+<li>字符串中必须仅有 P、 A、 T这三种字符，不可以包含其它字符；</li>
+<li>任意形如 xPATx 的字符串都可以获得“答案正确”，其中 x 或者是空字符串，或者是仅由字母 A 组成的字符串；</li>
+<li>如果 aPbTc 是正确的，那么 aPbATca 也是正确的，其中 a、 b、 c 均或者是空字符串，或者是仅由字母 A 组成的字符串。</li>
+</ol>
+<p>现在就请你为 PAT 写一个自动裁判程序，判定哪些字符串是可以获得“答案正确”的。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ol>
+<li>只能有’P’、 ‘A’、’T’</li>
+<li>aPcTd 中，d的长度=a的长度*c的长度</li>
+</ol>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>找到的答案，真的很不错</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line">    <span class="keyword">while</span>(getchar() != <span class="string">'\n'</span>) ; <span class="comment">/* need to read the rest of the line, make sure starting from a new line later */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* three numbers to count number of As: before P, between P&amp;T and after T */</span></span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>, count[<span class="number">3</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">while</span>((c = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">'A'</span>)                    count[pos]++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'P'</span> &amp;&amp; pos == <span class="number">0</span>)   pos = <span class="number">1</span>;        <span class="comment">/* should have only one P and only before T */</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'T'</span> &amp;&amp; pos == <span class="number">1</span>)   pos = <span class="number">2</span>;        <span class="comment">/* should have only one T and only after P */</span></span><br><span class="line">            <span class="keyword">else</span>                            <span class="keyword">break</span>;          <span class="comment">/* 'wrong' string */</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">'\n'</span> &amp;&amp; pos == <span class="number">2</span>                            <span class="comment">/* correct appearance of P and T, no other chars */</span></span><br><span class="line">         &amp;&amp; count[<span class="number">1</span>] &amp;&amp; count[<span class="number">2</span>] == count[<span class="number">1</span>] * count[<span class="number">0</span>])    <span class="comment">/* relation between three groups of As */</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"NO"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(c != <span class="string">'\n'</span>) <span class="keyword">while</span>((c = getchar()) != <span class="string">'\n'</span>); <span class="comment">/* still, read the whole line */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题核心，存储~P~T~由PT分割的三个AA~组中A的数量<br>通过计算判断是否符合要求</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/28/B1002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/12/28/B1002/" itemprop="url">
+                  乙级 1002 写出这个数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T22:19:00+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>## </p>
+<p>读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。</p>
+<p>输入格式：<br>每个测试输入包含 1 个测试用例，即给出自然数 n 的值。这里保证 n 小于 10^100<br>​​ 。</p>
+<p>输出格式：<br>在一行内输出 n 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>大数不能直接读入，需要转化成字符串类型，然后遍历求和<br>这道题中，各个位数上线为900，可以直接通过判断百、十、个位数字得到对应拼音<br>但是如果位数过长，还是需要转化成字符串(sprintf)，再经过转化得到各位位上的数字</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> str[<span class="number">100</span>];</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%s"</span>, str);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; str[i] != <span class="string">'\0'</span>; i++) &#123;</span><br><span class="line">    sum += str[i] - <span class="string">'0'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">char</span> *pinyins[] = &#123;<span class="string">"ling"</span>, <span class="string">"yi"</span>, <span class="string">"er"</span>, <span class="string">"san"</span>, <span class="string">"si"</span>, <span class="string">"wu"</span>, <span class="string">"liu"</span>, <span class="string">"qi"</span>, <span class="string">"ba"</span>, <span class="string">"jiu"</span>&#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (sum/<span class="number">100</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s "</span>, pinyins[sum/<span class="number">100</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (sum / <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s "</span>, pinyins[sum/<span class="number">10</span>%<span class="number">10</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s"</span>, pinyins[sum%<span class="number">10</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>使用 sprinf完成数字和字符串的转化<br>再输出pinyin</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;sum);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> str[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">sprintf</span>(str, <span class="string">"%d"</span>, sum);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> *pinyins[] = &#123;<span class="string">"ling"</span>, <span class="string">"yi"</span>, <span class="string">"er"</span>, <span class="string">"san"</span>, <span class="string">"si"</span>, <span class="string">"wu"</span>, <span class="string">"liu"</span>, <span class="string">"qi"</span>, <span class="string">"ba"</span>, <span class="string">"jiu"</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> length = <span class="built_in">strlen</span>(str);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, pinyins[str[i] - <span class="string">'0'</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/28/B1001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/12/28/B1001/" itemprop="url">
+                  乙级 1001 害死人不偿命的(3n+1)猜想
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T21:46:00+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>对任何一个正整数 n，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3n+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 n=1。卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3n+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
+<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 n，简单地数一下，需要多少步（砍几下）才能得到 n=1？</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span> (n!=<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span>) &#123;</span><br><span class="line">      n = (<span class="number">3</span> * n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      n = n / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    count++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/28/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/12/28/test/" itemprop="url">
+                  Hexo博客迁移
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T21:34:36+08:00">
+                2018-12-28
               </time>
             
 
@@ -380,15 +821,7 @@
       
         
           
-            <h2 id="Breakpoint"><a href="#Breakpoint" class="headerlink" title="Breakpoint"></a>Breakpoint</h2><p>debugger runs the program but stop before step into the <code>Breakpoint</code>. </p>
-<h2 id="Step-over"><a href="#Step-over" class="headerlink" title="Step over"></a>Step over</h2><p>execute the encapsulated codes, and jump into next line</p>
-<p>(always used to run a entire code block, such as a fucntion / method, or something encapsulated)</p>
-<h2 id="Step-into"><a href="#Step-into" class="headerlink" title="Step into"></a>Step into</h2><p>execute the next line of codes, if it is a function or <code>blackbox</code>, run into it and execute the details of the encapsulated</p>
-<h2 id="Conditional-Breakpoint"><a href="#Conditional-Breakpoint" class="headerlink" title="Conditional Breakpoint"></a>Conditional Breakpoint</h2><p>set some condition(s) in the <code>breakpoint</code> e.g <code>if flag = True</code>, stop running on that <code>Breakpoint</code></p>
-<p>Used in normal condition or Branchs (<code>While</code> / <code>For Loop</code>) </p>
-<h2 id="Resume"><a href="#Resume" class="headerlink" title="Resume"></a>Resume</h2><p>Run the following codes </p>
-<p>(**If <code>breakpoint</code> is in a loop, resume will restart the code runing,  process a loop,  and finally stop on the <code>Breakpoint</code> again)</p>
-<p>Usually to test loops. </p>
+            <p><a href="https://blog.csdn.net/White_Idiot/article/details/80685990" target="_blank" rel="noopener">https://blog.csdn.net/White_Idiot/article/details/80685990</a><br>推荐配合SimpRead插件阅读</p>
 
           
         
@@ -429,7 +862,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/24/which/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/12/24/五位一体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -451,8 +884,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/10/24/which/" itemprop="url">
-                  which
+                <a class="post-title-link" href="/blog/2018/12/24/五位一体/" itemprop="url">
+                  五位一体总布局
                 </a>
               
             
@@ -468,8 +901,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T17:56:00+08:00">
-                2018-10-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T07:33:00+08:00">
+                2018-12-24
               </time>
             
 
@@ -491,8 +924,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/政治/" itemprop="url" rel="index">
+                    <span itemprop="name">政治</span>
                   </a>
                 </span>
 
@@ -528,1312 +961,91 @@
       
         
           
-            <p>JNI error, JVM和JDK版本不匹配<br>然后我找了半天的原因，发现是环境变量的位置搞错了<br>当然首先是去找版本的问题，JDK，JRE什么的了解了一下，但是还是找不到具体的问题根源<br>发现可以使用<code>which</code>来追溯环境变量的位置</p>
-<p>结果是<code>javac</code>编译指令的源头是在jdk的bin里面的<br>但是<code>java</code>JVM运行指令是在另外一个文件夹里了，再去看了一下环境变量表，天知道我什么时候把java加到Path里了</p>
-<p>不过最后证明<code>which</code>在解决问题的时候真的很管用</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/23/Vim-批量缩进/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/10/23/Vim-批量缩进/" itemprop="url">
-                  批量缩进
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T22:20:00+08:00">
-                2018-10-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>当前行缩进</p>
-</blockquote>
-<p><code>&gt;&gt;</code></p>
-<blockquote>
-<p>从选中列开始向下n列，向右缩进</p>
-</blockquote>
-<p><code>n&gt;&gt;</code></p>
-<blockquote>
-<p>m到n行进行缩进</p>
-</blockquote>
-<p><code>m,n&gt;</code></p>
-<blockquote>
-<p>从m行开始缩进n行</p>
-</blockquote>
-<p><code>m&gt;n</code></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/16/pain/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/10/16/pain/" itemprop="url">
-                  LIFE IS STRANGE
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T21:12:34+08:00">
-                2018-10-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>哎，这一周真的经历了很多</p>
-<p>有些时候，不经历过的情感，难以想象其中的痛苦</p>
-<p>起码我活过来了，继续努力吧</p>
-<p>最近也开始复习python了，每天看一两道算法题</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/07/nand2tetris/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/10/07/nand2tetris/" itemprop="url">
-                  FromNand2Tetris
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T21:00:00+08:00">
-                2018-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机组成原理/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机组成原理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>coursera：From nand to tetris，part I &amp; part II<br>该课程是由希伯来大学教授组织的网络课程，官网（<a href="http://www.nand2tetris.com）" target="_blank" rel="noopener">www.nand2tetris.com）</a><br>主要内容是教授<strong>计算机组成原理的基础知识</strong></p>
-<hr>
-<h1 id="推荐理由"><a href="#推荐理由" class="headerlink" title="推荐理由"></a>推荐理由</h1><ol>
-<li>课程特别编写了配套的程序，设计了特定的计算机语言来方便初学者学习基础知识</li>
-<li>给了一个很浅，但又具有广阔视野的对计算机的介绍<ul>
-<li>浅是因为每一个片段的知识都是比较基本的，对一些大学教材复杂的内容封装完，只给一个用户接口，每一章节也只有很少几个实现的作业</li>
-<li>深是涵盖的方面确实很广，第一周是基础的门，第二周是实现ALU计算单元，第三周实现寄存器和内容，第四周介绍一种简单的汇编语言，第五周综合一，二，三周内容实现一个CPU，第六周和第四周对应，实现一个assembler。作业量是每周3-4h，cpu那节课我写了好久好久，运气好debug一次过的情况下也写了有5个小时</li>
-</ul>
-</li>
-<li>虽然只学了part I， 但是总体感觉学的很爽，毕竟之前对这一块一无所知，作业难度设置也比较合理吧，满足敲键盘思考的需求</li>
-<li>1.25x 可以让人专心紧跟老师，不走神</li>
-</ol>
-<hr>
-<h1 id="未来视"><a href="#未来视" class="headerlink" title="未来视"></a>未来视</h1><p>个人将其定位是计算机组成原理的入门知识<br>之后主干的学习是CSAPP书配合CMU的视频/coursera UW的hardware-software interface，考研向还是主要采用王道或者哈工大/北邮的计算机组成原理</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/原型继承/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/22/原型继承/" itemprop="url">
-                  原型继承
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T23:42:39+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>当谈到继承时，JavaScript 只有一种结构：<strong>对象</strong>。每个实例对象（object ）都有一个私有属性 - <strong> <strong>proto</strong></strong> 指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节</p>
-<p><code>Student</code>构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="扩展原型链"><a href="#扩展原型链" class="headerlink" title="扩展原型链"></a>扩展原型链</h1><p>现在想基于<code>Student</code>扩展出<code>PrimaryStudent</code>, 可以先定义出<code>PrimaryStudent</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是调用了<code>Student</code>构造函数，并不等于继承了<code>Student</code><br><code>PrimaryStudent</code>所创建的对象的原型链是<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Object.prototype —-&gt; null</em></strong><br>事实上，基于<code>Student</code>拓展<code>PrimaryStudent</code>是想创建如下的原型链<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Student.prototype —-&gt; Obeject.prototy[e —-&gt; null</em></strong></p>
-<p>借助一个中间对象来实现正确的原型链，这个中间对象的原型要指向<code>Student.prototype</code>。这个中间对象可以<strong>使用空函数<code>F</code></strong>实现</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span> grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// F的原型指向Student的原型</span></span><br><span class="line">F.prototype = Student.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">//把PrimaryStudent的原型指向一个F对象，那么PrimaryStudent的原型就指向了Student的原型</span></span><br><span class="line">PrimaryStudent.prototype = <span class="keyword">new</span> F();</span><br><span class="line"><span class="comment">//把`PrimaryStudent`原型的`constructor`修复成`PrimaryStudent`</span></span><br><span class="line">PrimaryStudent.prototype.constructor = Primary;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此时可以在PrimaryStudent的原型(也就是new F())上定义新的方法</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = fucntion () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> PrimaryStudent( &#123;</span><br><span class="line">    name : <span class="string">'小明'</span>,</span><br><span class="line">    grade : <span class="number">2</span></span><br><span class="line">&#125;);</span><br><span class="line">xiaoming.name;              <span class="comment">//小明</span></span><br><span class="line">xiaoming.grade;              <span class="comment">// 2</span></span><br><span class="line">xiaoming.__proto__ === PrimaryStudent.prototype;      <span class="comment">// true</span></span><br><span class="line">xiaoming.__proto__.__proto__ ==Student.prototype;     <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf PrimaryStudent；                          <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf Student;                                          <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>下图是新的原型链的结构<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001439872160923ca15925ec79f4692a98404ddb2ed5503000/l" alt="relationship"></p>
-<p><code>new F()</code> 只是用来连接，并没有改变原有的<code>Student</code>定义的原链</p>
-<hr>
-<h1 id="用inherits封装"><a href="#用inherits封装" class="headerlink" title="用inherits封装"></a>用<code>inherits</code>封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherist</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.ptototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="PrimaryStudent-prototype-new-Student"><a href="#PrimaryStudent-prototype-new-Student" class="headerlink" title="PrimaryStudent.prototype = new Student()"></a>PrimaryStudent.prototype = new Student()</h1><p>不建议直接使用<code>PrimaryStudent.prototype = new Student()</code><br>先修改下Student的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name ? props.name : <span class="string">'Unnamed'</span>;</span><br><span class="line">    <span class="keyword">this</span>.height = <span class="number">170</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果正常继承，<code>PrimaryStudent.prototype</code>里面不能存在<code>Student</code>实例中才能存在的<code>height</code>和<code>name</code>。<br>如果使用了<code>PrimaryStudent.prototype = new Student()</code>，就会发现<code>PrimaryStudent.prototype</code>里面存在这两个属性。<br>如果使用的架桥函数<code>F</code>，则<code>PrimaryStudent.prototype</code>中只有<code>Student {constructor: ƒ, getGrade: ƒ}</code>两个方法。</p>
-<hr>
-<h1 id="Object-creat"><a href="#Object-creat" class="headerlink" title="Object.creat()"></a>Object.creat()</h1><p>不用架桥函数的办法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PrimaryStudent.prototype = <span class="built_in">Object</span>.create(Student.prototype)</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码和使用架桥函数的结果一样。</p>
-<p><code>Object.create</code>和架桥函数的办法，和使用 <code>new Student()</code>的区别在于<br>使用<code>Object.create</code>和架桥函数的时候，只会将<code>PrimaryStudent.prototype</code>中的<code>__proto__</code>指向<code>Student</code>这个函数的<strong>原型对象</strong> <code>Student.prototype</code><br>而使用<code>new Student()</code>的时候，<code>PrimaryStudent.prototype</code>指向的是<code>Student</code>这个函数对象的<strong>一个实例s</strong>，<code>Student</code>函数对象在实例化的时候，会完全拷贝一份<code>Student.prototype</code>，也会增加<code>Student</code>中的属性，比如<code>name</code></p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>定义新的构造函数，利用<code>.call(this, otherParameter)</code>调用希望继承的构造函数，并绑定<code>this</code></li>
-<li>借助空函数<code>F()</code>实现原型继承，最好通过封装<code>inherits</code></li>
-<li>在新的构造函数原型上就可以定义新的方法</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/创建对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/22/创建对象/" itemprop="url">
-                  创建对象
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T10:10:39+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="a-protype-based-language"><a href="#a-protype-based-language" class="headerlink" title="a protype-based language"></a>a protype-based language</h1><p>JavaScript is often described as <strong>a prototype-based language</strong> — each object has a prototype object<br>这些原型作为模板对象，其属性被创建的对象继承<br>一个对象的原型也有原型，这构成了一个<abbr titile="protypechain">原型链</abbr>。 当访问对象的属性，方法时，首先在该对象上寻找方法，如果没有找到，就上溯到原型对象中查找，如果遍历原型链也没有找到，则返回undefined<br>以<code>Array</code>为例，查找属性的原型链为<br><strong><em>var arr = [..]    ===&gt;  Array.prototype   ===&gt; Object.prototype ===&gt; null</em></strong><br><code>Array.prototype</code>定义了<code>indexOf()</code>，<code>shift()</code>等方法，因此可以在所有<code>Array</code>对象中调用这些方法</p>
-<hr>
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>JavaScript可以利用 <strong>构造函数</strong> 来创建对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stdudent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"Hello, "</span> + <span class="keyword">this</span>.name + <span class="string">"!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">在JavaScript中，可以使用`</span><span class="keyword">new</span><span class="string">`关键字来调用这个函数，并 **返回一个对象**</span></span><br><span class="line"><span class="string">(new Date() : new Map() : new Set() : new RegExp())</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">"小明"</span>);</span><br><span class="line">xiaoming.name;     <span class="comment">// "小明"</span></span><br><span class="line">xiaoming.hello();    <span class="comment">// "hello, 小明!"</span></span><br></pre></td></tr></table></figure>
-<p>如果不使用<code>new</code>，就是一个普通的函数，返回<code>undefined</code>； 如果使用<code>new</code>,函数成为构造函数，this指向新创建的对象，并默认返回this<br>xiaoming的原型链<br><strong><em>xioaming  ===&gt; Student.prototype ===&gt; Object.prototype ===&gt; null</em></strong><br> 如果又通过构造函数创建了其他对象，他们的原型相同<br><code>new Student()</code> 创建的对象还从原型上继承一个<code>constructor</code>属性，其等于构造函数<code>Student()</code>本身</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.constructor === Student.prototype.constructor;      <span class="comment">// true</span></span><br><span class="line">Student.prototype.constructor === Student;                            <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(xiaoming) === Student.prototype;       <span class="comment">//true</span></span><br><span class="line">xiaoming <span class="keyword">instanceof</span> Student                                                     <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="relationship"></p>
-<hr>
-<h1 id="shared-method"><a href="#shared-method" class="headerlink" title="shared method"></a>shared method</h1><p>构造函数定义的方法，虽然可能代码相同，但是在两个构造出的对象中，函数不等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xiaoming.name;                                  <span class="comment">// '小明'</span></span><br><span class="line">xiaohong.name;                                  <span class="comment">// '小红'</span></span><br><span class="line">xiaoming.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaohong.hello;                                    <span class="comment">// function</span></span><br><span class="line">xiaoming.hello === xiaohong.hello;     <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
-<p>要创建一个共享的方法(类似于类的方法)，可以在原型上定义，这里就是在<code>Student.prototype</code>中定义</p>
-<p><img src="http://muicoder.github.io/liaoxuefeng/javascript/images/B8293B19F4C954A0A8A69B7F11FA3555.png" alt="shared methods"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/JSON/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/22/JSON/" itemprop="url">
-                  JSON in JavaScript
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T02:00:00+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h1 id="JSON标准"><a href="#JSON标准" class="headerlink" title="JSON标准"></a>JSON标准</h1><p>JSON实际上是JavaScript的一个子集，是一种数据交换格式，有如下的数据类型</p>
-<ul>
-<li>number:          和JavaScri中<code>number</code>一致</li>
-<li>boolean:         <code>true</code>和·<code>false</code></li>
-<li>string:          <code>string</code></li>
-<li>null:            <code>null</code><br>+array:            <code>Array</code>的表达方式<code>[...]</code></li>
-<li>object:          <code>object</code>的表达方式 <code>{...}</code><br>JSON字符集必须是<strong>UTF-8</strong>，表示多语言就没有问题了。为了统一解析，JSON的字符串规定必须用双引号<code>&quot;&quot;</code>，<strong>Object的键</strong>也必须用双引号<code>&quot;&quot;</code></li>
-</ul>
-<p>JSON应用过程 </p>
+            <h1 id="“五位一体”总体布局"><a href="#“五位一体”总体布局" class="headerlink" title="“五位一体”总体布局"></a>“五位一体”总体布局</h1><p>经济建设，政治建设，文化建设，社会建设，生态文明建设作为一个有机的整体</p>
+<h2 id="建设现代化经济体系"><a href="#建设现代化经济体系" class="headerlink" title="建设现代化经济体系"></a>建设<strong>现代化经济体系</strong></h2><h3 id="1-贯彻新发展理念-五点"><a href="#1-贯彻新发展理念-五点" class="headerlink" title="1.贯彻新发展理念(五点)"></a>1.贯彻新发展理念(五点)</h3><hr>
+<p>党的十八届五中全会提出<code>创新</code>、<code>协调</code>、<code>绿色</code>、<code>开放</code>、<code>共享</code>的新发展理念</p>
 <ol>
-<li>把任何JavaScript值序列化成为一个JSON格式的字符串，然后通过网络进行传输</li>
-<li>把接受到的JSON格式字符串反序列化为一个JavaScript值，就可以在JS中直接应用</li>
+<li>创新是引领发展的第一动力</li>
+<li>协调是持续发展的内在要求</li>
+<li>绿色是永续发展的必要条件</li>
+<li>开放是国家繁荣的必由之路</li>
+<li>共享是中国特色社会主义本质要求</li>
 </ol>
-<hr>
-<h1 id="序列化-serialization"><a href="#序列化-serialization" class="headerlink" title="序列化 serialization"></a>序列化 serialization</h1><p>syntax</p>
-<blockquote>
-<p> JSON.stringify(value[, replacer[, space]])</p>
-</blockquote>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
-<li><strong>value</strong>    : 需要convert成JSONstring的值</li>
-<li><strong>replacer</strong> : A <strong>function</strong> that <strong>alters the behavior of the stringification process</strong>, or <strong>an array of String and Number objects</strong> that serve as <strong>a whitelist for selecting/filtering the properties of the value object</strong> to be included in the JSON string. If this value is null or not provided, all properties of the object are included in the resulting JSON string</li>
-<li><strong>space</strong>    : A String or Number object that’s used to <strong>insert white space</strong> into the output JSON string for <strong>readability</strong> purposes.<strong>If this is a Number</strong>, it indicates the number of space characters to use as white space; this number is capped at 10 (if it is greater, the value is just 10). Values less than 1 indicate that no space should be used.<strong>If this is a String</strong>, the string (or the first 10 characters of the string, if it’s longer than that) is used as white space. If this parameter is not provided (or is null), no white space is used</li>
-</ul>
-<p>需要注意的几点</p>
+<h3 id="2-深化供给侧改革-四点"><a href="#2-深化供给侧改革-四点" class="headerlink" title="2.深化供给侧改革(四点)"></a>2.深化供给侧改革(四点)</h3><hr>
 <ol>
-<li>replacer 参数，replacer需要接收key，value两个参数，返回value的值，replacer以一种map的方式处理对象，并返回JSON字符串</li>
-<li>replacer 作用于序列化的value是<strong>recursive</strong>。会影响例如对象中的对象，<code>array</code>中的<code>array</code>。</li>
-<li>replacer 如果作用于对象，如果返回的是<code>undefined</code>，该对象的属性将不会被包含在JSON字符串中，其起到一个过滤的作用(filte out)</li>
-<li>space    自动在对象每个属性后面添加换行符，前面的缩进由传递进去的字符或者数字个space构成<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replacer</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Filtering out properties</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">foundation</span>: <span class="string">'Mozilla'</span>, <span class="attr">model</span>: <span class="string">'box'</span>, <span class="attr">week</span>: <span class="number">45</span>, <span class="attr">transport</span>: <span class="string">'car'</span>, <span class="attr">month</span>: <span class="number">7</span>&#125;;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(foo, replacer);</span><br><span class="line"><span class="comment">// '&#123;"week":45,"month":7&#125;'</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>推进<code>增长动能</code>转换</li>
+<li>深化<code>要素市场化</code>改革</li>
+<li>加大<code>人力资源</code>的培育力度</li>
+<li>持续推进<code>&quot;三去一降一补&quot;</code> — 去产能，去库存，去杠杆，降成本，补短板</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span>,</span><br><span class="line">    age: <span class="number">14</span>,</span><br><span class="line">    gender: <span class="literal">true</span>,</span><br><span class="line">    height: <span class="number">1.65</span>,</span><br><span class="line">    grade: <span class="literal">null</span>,</span><br><span class="line">    <span class="string">'middle-school'</span>: <span class="string">'\"W3C\" Middle School'</span>,</span><br><span class="line">    skills: [<span class="string">'JavaScript'</span>, <span class="string">'Java'</span>, <span class="string">'Python'</span>, <span class="string">'Lisp'</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> json1 = <span class="built_in">JSON</span>.stringify(xiaoming);</span><br><span class="line"><span class="built_in">console</span>.log(json1);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  "name": "小明",</span></span><br><span class="line"><span class="comment">  "age": 14,</span></span><br><span class="line"><span class="comment">  "gender": true,</span></span><br><span class="line"><span class="comment">  "height": 1.65,</span></span><br><span class="line"><span class="comment">  "grade": null,</span></span><br><span class="line"><span class="comment">  "middle-school": "\"W3C\" Middle School",</span></span><br><span class="line"><span class="comment">  "skills": [</span></span><br><span class="line"><span class="comment">    "JavaScript",</span></span><br><span class="line"><span class="comment">    "Java",</span></span><br><span class="line"><span class="comment">    "Python",</span></span><br><span class="line"><span class="comment">    "Lisp"</span></span><br><span class="line"><span class="comment">  ]</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h2 id="toJSON"><a href="#toJSON" class="headerlink" title="toJSON()"></a><code>toJSON()</code></h2><p>the toJSON() method customizes JSON stringification behavior: instead of the object being serialized, the value returned by the toJSON() method when called will be serialized.<br>其定制了序列化的行为<br>JSON.stringify() 会向JSON传递一个参数</p>
+<h3 id="3-建设现代化经济体系的主要任务"><a href="#3-建设现代化经济体系的主要任务" class="headerlink" title="3.建设现代化经济体系的主要任务"></a>3.建设现代化经济体系的主要任务</h3><hr>
 <ol>
-<li>如果包含<code>toJSON</code>方法的对象是作为一个属性值，那么传入的key是这个属性的名称</li>
-<li>如果包含<code>toJSON</code>方法的对象是<code>Array</code>中的一项，那么传入的<code>key</code>是index</li>
-<li>如果包含<code>toJSON</code>方法的对象直接被序列化，那么传入的参数是空字符串<code>&quot;&quot;</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    data : <span class="string">'data'</span>,</span><br><span class="line">    toJSON(key) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key) &#123;</span><br><span class="line">            <span class="keyword">return</span>  <span class="string">`Now I am a nested object udner key '<span class="subst">$&#123;key&#125;</span>'`</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj);               <span class="comment">//'&#123;"data" : "data"&#125;</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123;obj&#125;);            <span class="comment">//'&#123;"obj" : "Now I am a nested object under key 'obj'"&#125;'</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify([obj]);            <span class="comment">//'["Now I am a nested object under key '0'"]'</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>(实体经济)大力发展<code>实体经济</code>。</li>
+<li>(创新)加快实施<code>创新驱动发展</code>战略。</li>
+<li>(各类市场成分)激活<code>各类市场主体</code>活力。</li>
+<li>(协调)积极推动<code>城乡区域协调</code>发展。</li>
+<li>(开放型经济)着力发展开放型经济</li>
+<li>(经济体制改革)加快完善社会主义市场经济体制</li>
 </ol>
-<hr>
-<h1 id="反序列化-deserialization"><a href="#反序列化-deserialization" class="headerlink" title="反序列化 deserialization"></a>反序列化 deserialization</h1><p>对于一个JSON字符串，<code>JSON.parse()</code>可以将其转化成一个JavaScript对象</p>
-<blockquote>
-<p>JSON.parse(text[, revivor])</p>
-</blockquote>
-<p>revivor类似replacer，转换解析出来的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = JSON.parse(&apos;&#123;&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:14&#125;&apos;, function (key, value) &#123;</span><br><span class="line">    if (key === &apos;name&apos;) &#123;</span><br><span class="line">        return value + &apos;同学&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    return value;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(JSON.stringify(obj));        // &#123;name: &apos;小明同学&apos;, age: 14&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="具体例子-格式化JSON数据"><a href="#具体例子-格式化JSON数据" class="headerlink" title="具体例子 : 格式化JSON数据"></a>具体例子 : 格式化JSON数据</h1><p>进入JSON数据网页<br>在console中使用 用<code>document.QuerySelector</code> 函数捕获到元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得 pre标签下的html文本</span></span><br><span class="line"><span class="keyword">var</span> pre = <span class="built_in">document</span>.querySlector(<span class="string">'pre'</span>);</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">`</span>innerHTML<span class="string">`得到转义之后的真实数据，例如`</span>&lt;<span class="string">` `</span>&gt;<span class="string">`在转义之后的`</span>&amp;lt;<span class="string">` `</span>&amp;gt;<span class="string">`等</span></span><br><span class="line"><span class="string">`</span>innerText<span class="string">` 则是得到未转义之前的显示形式，也是符号原有的样式</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> pre_string = pre.innerText;</span><br></pre></td></tr></table></figure></p>
-<p>将获得的JSON，反序列化(parse)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pre_date = <span class="built_in">JSON</span>.parse(pre_string);</span><br></pre></td></tr></table></figure></p>
-<p>为了获得更直观的数据表现，需要用到space参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(pre_data, <span class="literal">null</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/美梦/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/22/美梦/" itemprop="url">
-                  美梦
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T01:28:34+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="到家"><a href="#到家" class="headerlink" title="到家"></a>到家</h2><p>在八点，余温未褪，寒意未起，在最熟悉的床上，做了一个关于大学的梦啊。</p>
-<p>很美好，很向往，很勇敢。</p>
-<h2 id="那么代价呢"><a href="#那么代价呢" class="headerlink" title="那么代价呢"></a>那么代价呢</h2><p>不知道啊。做什么都有代价，都有付出。<br>这样看似轻松的每天看书，敲代码，需要压榨精力，摆脱一天麻木的精神状态，用最fresh的态度去了解另外一门学科的知识。<br>那我还有什么时间呢</p>
-<h2 id="减肥"><a href="#减肥" class="headerlink" title="减肥"></a>减肥</h2><p>我真的要减肥了<br>真的要减肥了<br>真的要减肥了</p>
-<h2 id="变得勇敢点吧"><a href="#变得勇敢点吧" class="headerlink" title="变得勇敢点吧"></a>变得勇敢点吧</h2><p>个博的好处是在于晚上能发点牢骚，虽然给了几个pong友网址，也应该并不会来看，总是抱着希望能有人能发现我的世界，又希望我的世界能够深藏于万维世界之中。好了，我要看书了！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/21/RegExp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/09/21/RegExp/" itemprop="url">
-                  正则表达式RegExp
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T01:10:00+08:00">
-                2018-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="正则表达式知识"><a href="#正则表达式知识" class="headerlink" title="正则表达式知识"></a>正则表达式知识</h2><h3 id="正则表达式基础"><a href="#正则表达式基础" class="headerlink" title="正则表达式基础"></a>正则表达式基础</h3><p>直接给出字符可以精确匹配<br>通用匹配</p>
+<h2 id="发展社会主义民主政治"><a href="#发展社会主义民主政治" class="headerlink" title="发展社会主义民主政治"></a>发展社会主义民主政治</h2><h3 id="1-坚持中国特色社会主义政治发展道路"><a href="#1-坚持中国特色社会主义政治发展道路" class="headerlink" title="1. 坚持中国特色社会主义政治发展道路"></a>1. 坚持中国特色社会主义政治发展道路</h3><hr>
 <ol>
-<li><code>\d</code> 匹配一个数字</li>
-<li><code>\w</code> 匹配一个字母</li>
-<li><code>.</code> 匹配任意字符</li>
-<li><code>\s</code> 匹配空格，<code>\t</code></li>
+<li>走中国特色社会主义政治发展道路，必须坚持党的领导、人民当家做主、依法治国三者有机统一</li>
+<li>走中国特色社会主义政治发展道路，必须坚持正确政治方向。</li>
+<li>深化党和国家机构的改革</li>
 </ol>
-<p>多字符匹配</p>
+<h3 id="2-健全人民当家作主制度体系"><a href="#2-健全人民当家作主制度体系" class="headerlink" title="2. 健全人民当家作主制度体系"></a>2. 健全人民当家作主制度体系</h3><hr>
 <ol>
-<li><code>*</code> 表示前面的规则应用任意个字符</li>
-<li><code>+</code> 表示匹配至少一个字符</li>
-<li><code>?</code> 表示匹配0~1个字符</li>
-<li><code>{n}</code> 表示精确指定n个字符串</li>
-<li><code>{n,m}</code> 表示匹配n~m个字符</li>
+<li>人民代表大会制度是我国的根本政治制度。发挥人大常委在立法工作中的指导作用。</li>
+<li>发挥社会主义协商民主的重要作用</li>
+<li>中国共产党领导的多党合作和政治协商制度</li>
+<li>民族区域自治制度</li>
+<li>基层群众自治制度</li>
 </ol>
-<h3 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h3><p>[范围规则ruler]表示一个字符在范围内匹配</p>
+<h3 id="3-巩固和发展爱国统一战线"><a href="#3-巩固和发展爱国统一战线" class="headerlink" title="3.巩固和发展爱国统一战线"></a>3.巩固和发展爱国统一战线</h3><hr>
 <ol>
-<li>[0-9]                   匹配一个数字</li>
-<li>[0-9A-Za-z]        匹配一个数字或者字母</li>
-<li>[0-9A-Za-z_]     匹配一个数字或者字母或者下划线</li>
-<li>[0-9A-Za-z_] +  匹配至少一个(数字或者字母或者下划线) 例如 <code>&#39;a110&#39;</code>, <code>&#39;0_Z&#39;</code>, <code>&#39;js2015&#39;</code></li>
-<li>多个[ ]组合 [a-zA-Z_\$][0-9a-zA-Z]{0, 19} 精确指定长度为1-20个字符 (前面一个字符开头，后面0~19个指定字符)</li>
+<li>(各党派问题)坚持长期共存、相互监督、肝胆相照、荣辱与共，支持民主党派按照中国特色社会主义参政要求更好地履行职能。</li>
+<li>(民族问题)深化民族团结进步教育。</li>
+<li>(宗教问题)全面贯彻党的宗教工作基本方法。</li>
+<li>(社会各界人士)牢牢把我大团结大联合的主体。知识分子、社会各阶层人士、非公有制经济人士、海外华侨，归侨侨眷。</li>
 </ol>
-<p><code>A|B</code> 表示匹配A或者B <code>(J|j)ava(S|s)cript</code>可以匹配’JavaScript’, ‘javascript’等<br><code>^</code> 表示后面的规则应用于第一个字符        <code>^\d</code>表示以一个数字开头<br>‘$’  表示前面的规则应用于最后一个字符    ‘\d$` 表示一一个数字结尾</p>
-<p>需要转义的字符</p>
+<h3 id="4-坚持”一国两制”-推进祖国统一"><a href="#4-坚持”一国两制”-推进祖国统一" class="headerlink" title="4. 坚持”一国两制”,推进祖国统一"></a>4. 坚持”一国两制”,推进祖国统一</h3><hr>
+<p>1.全面贯彻”一国两制”的方针</p>
+<p>2.扎实推进祖同和平统一进程</p>
+<h2 id="推动社会主义文化繁荣兴盛"><a href="#推动社会主义文化繁荣兴盛" class="headerlink" title="推动社会主义文化繁荣兴盛"></a>推动社会主义文化繁荣兴盛</h2><h3 id="1-牢牢掌握意识形态工作领导权"><a href="#1-牢牢掌握意识形态工作领导权" class="headerlink" title="1.牢牢掌握意识形态工作领导权"></a>1.牢牢掌握<code>意识形态工作领导权</code></h3><hr>
 <ol>
-<li>保留字符<ul>
-<li><code>+</code> — <code>\+</code></li>
-<li><code>*</code> — <code>\*</code></li>
-<li><code>?</code> — <code>\?</code>  </li>
-<li><code>$</code> — <code>\$</code></li>
-<li><code>.</code> — <code>\.</code></li>
-<li><code>[</code> <code>]</code> — <code>\[</code> <code>\]</code></li>
-<li><code>{</code> <code>}</code> — <code>\{</code> <code>\}</code></li>
-<li><code>(</code> <code>)</code> — <code>\(</code> <code>\)</code></li>
-<li><code>|</code> — <code>\|</code></li>
-<li><code>/</code> — <code>\/</code></li>
-</ul>
-</li>
-<li>制表，换行，空(null)，垂直制表，换页，空格  — <code>\t</code>  <code>\n</code>  <code>\0</code> <code>\v</code>  <code>\f</code> <code>\s</code></li>
+<li>(马哲)坚持<code>马克思主义思想</code>指导地位</li>
+<li>(哲学社会科学)加快构建中国特色<code>哲学社会科学</code>。</li>
+<li>(舆论导向)坚持正确的<code>舆论导向</code></li>
+<li>(网络)建设好<code>网络空间</code></li>
+<li>(责任)落实好<code>意识形态工作</code>责任制</li>
 </ol>
-<hr>
-<h2 id="JavaScript中的RegExp"><a href="#JavaScript中的RegExp" class="headerlink" title="JavaScript中的RegExp"></a>JavaScript中的RegExp</h2><p>javascript中有两种创建正则表达式的方式</p>
+<h3 id="2-培育和践行社会主义核心价值观"><a href="#2-培育和践行社会主义核心价值观" class="headerlink" title="2.培育和践行社会主义核心价值观"></a>2.培育和践行社会主义核心价值观</h3><hr>
 <ol>
-<li><code>/正则表达式/</code> 赋值给变量</li>
-<li><code>new RegExp(&#39;正则表达式&#39;)</code> 创建一个<code>RegExp</code>对象</li>
+<li>基于社会主义核心价值体系</li>
+<li>把社会主义核心价值观<code>融入社会生活</code>各个方面</li>
+<li>坚持全民行动</li>
+<li>立足中华优秀<code>传统文化</code>和<code>革命文化</code></li>
+<li>发扬<code>民族精神</code></li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re1 = <span class="regexp">/ABC\-001/</span>;                   <span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> re2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ABC\\-001'</span>);      <span class="comment">//方法2</span></span><br><span class="line">re1;     <span class="comment">// /ABC\-001/</span></span><br><span class="line">re2;     <span class="comment">// /ABC\-001/</span></span><br></pre></td></tr></table></figure>
-<p>第二种方法时，字符中需要转义，<code>\\</code>表示转义出一个<code>\</code></p>
-<h3 id="判断正则表达式是否匹配"><a href="#判断正则表达式是否匹配" class="headerlink" title="判断正则表达式是否匹配"></a>判断正则表达式是否匹配</h3><p><code>RegExp.test(testString)</code><br>使用<code>test</code>方法来测定给定的字符串是否符合条件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^d&#123;3&#125;\-\d(3,8&#125;$/</span>;</span><br><span class="line">re.test(<span class="string">'010-12345'</span>);     <span class="comment">// true</span></span><br><span class="line">re.test(<span class="string">'010-1234x'</span>);     <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h3 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h3><p><code>string.split(/正则表达式/);</code><br><code>string</code>中去除符合正则表达式的子字符(串)，然后剩下的子字符串组形成一个<code>Array</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a b;;  ,,,  c'</span>.split(<span class="regexp">/[\s\;\,]+/</span>);   <span class="comment">//['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>类似于python re.math中分组后的group<br>正则表达式中，用<code>()</code>包括起来的就是需要提取的分组(group)<br><code>RegExp.exec(String)</code>就可以将<strong>符合正则表达式的字符串</strong>，按组提取出子字符串，将其组合成一个<code>Array</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^(\d&#123;3&#125;-(\d&#123;3,8&#125;$/</span>;</span><br><span class="line">re.exec(<span class="string">'010-12345'</span>);        <span class="comment">// ['010-12345', '010', '12345']</span></span><br><span class="line">re.exec(<span class="string">'010 12345'</span>);        <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h2><p>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var re = /^(\d+)(0*)$/;</span><br><span class="line">re.exec(&apos;102300&apos;);        // [&apos;102300&apos;, &apos;102300&apos;, &apos;&apos;]</span><br></pre></td></tr></table></figure></p>
-<p><code>\d+</code>把所有<code>0</code>都匹配了</p>
-<h3 id="进入非贪婪模式"><a href="#进入非贪婪模式" class="headerlink" title="进入非贪婪模式"></a>进入非贪婪模式</h3><p>默认是贪婪模式；在<strong>量词</strong>后面直接加上一个<code>？</code>就是非贪婪模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/^(\d+?)(0*)$/</span>;</span><br><span class="line">re.exec(<span class="string">'102300'</span>);          <span class="comment">//['102300', '102, '00']</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="全局搜索"><a href="#全局搜索" class="headerlink" title="全局搜索"></a>全局搜索</h2><p>JavaScript有特殊标志 - 其中较为特殊的是<code>g</code>，表示全局匹配<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r1 = <span class="regexp">/test/g</span>;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> r1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'test'</span>, <span class="string">'g'</span>);</span><br></pre></td></tr></table></figure></p>
-<p>全局可以多次执行<code>exex()</code>方法，去搜索字符串中符合的子字符串<br>当使用全局搜索时，每次运行<code>exec()</code>， 正则表达式会更新<code>lastIndex</code>属性，其表示上次匹配的最后的索引<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'JavaScript, VBSript, ECMAScript'</span>;</span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/[a-zA-Z]+Script/g</span>;</span><br><span class="line"><span class="comment">// 使用全局匹配:</span></span><br><span class="line">re.exec(s);      <span class="comment">// ['JavaScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['VBScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['JScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 29</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// ['ECMAScript']</span></span><br><span class="line">re.lastIndex;    <span class="comment">// 44</span></span><br><span class="line"></span><br><span class="line">re.exec(s);      <span class="comment">// null，直到结束仍没有匹配到</span></span><br></pre></td></tr></table></figure></p>
-<p>全局匹配类似搜索，因此不能使用<code>/^...$/</code>，那样只会最多匹配一次</p>
+<h3 id="3-坚定文化自信，建设社会主义文化强国"><a href="#3-坚定文化自信，建设社会主义文化强国" class="headerlink" title="3. 坚定文化自信，建设社会主义文化强国"></a>3. 坚定文化自信，建设社会主义文化强国</h3><hr>
+<ol>
+<li>文化<code>自信</code></li>
+<li>文化<code>事业</code>和文化<code>产业</code></li>
+<li>提高国家<code>文化软实力</code></li>
+</ol>
+<h2 id="坚持在发展中保障和改善民生"><a href="#坚持在发展中保障和改善民生" class="headerlink" title="坚持在发展中保障和改善民生"></a>坚持在发展中保障和改善民生</h2><h3 id="1-提高保障和改善民生水平"><a href="#1-提高保障和改善民生水平" class="headerlink" title="1.提高保障和改善民生水平"></a>1.提高保障和改善民生水平</h3><hr>
+<ol>
+<li>优先发展<code>教育</code>事业</li>
+<li>提高<code>就业质量</code>和<code>人民收入</code>水平</li>
+<li>加强<code>社会保障体系</code>建设</li>
+<li>坚决打赢<code>脱贫</code>攻坚战</li>
+<li><code>健康中国</code></li>
+</ol>
+<h3 id="2-加强和创新社会治理"><a href="#2-加强和创新社会治理" class="headerlink" title="2.加强和创新社会治理"></a>2.加强和创新<strong>社会治理</strong></h3><hr>
+<h3 id="3-坚持总体国家安全观"><a href="#3-坚持总体国家安全观" class="headerlink" title="3.坚持总体国家安全观"></a>3.坚持<strong>总体国家安全观</strong></h3><hr>
+<h2 id="建设美丽中国"><a href="#建设美丽中国" class="headerlink" title="建设美丽中国"></a>建设美丽中国</h2><h3 id="1-坚持人与自然和谐共生"><a href="#1-坚持人与自然和谐共生" class="headerlink" title="1.坚持人与自然和谐共生"></a>1.坚持人与自然和谐共生</h3><hr>
+<h3 id="2-形成人与自然和谐发展新格局"><a href="#2-形成人与自然和谐发展新格局" class="headerlink" title="2.形成人与自然和谐发展新格局"></a>2.形成人与自然<code>和谐发展新格局</code></h3><hr>
+<h3 id="3-加快生态文明体制改革"><a href="#3-加快生态文明体制改革" class="headerlink" title="3.加快生态文明体制改革"></a>3.加快<code>生态文明</code>体制改革</h3><hr>
 
           
         
@@ -1869,7 +1081,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1914,7 +1126,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1960,7 +1172,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/我是牛" target="_blank" title="Zhihu">
+                <a href="https://www.zhihu.com/people/a-si-pi-25/activities" target="_blank" title="Zhihu">
                   
                   Zhihu
                 </a>

@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/13/盒模型-外边距重叠/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/24/which/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -303,8 +303,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/09/13/盒模型-外边距重叠/" itemprop="url">
-                  盒模型-外边距重叠
+                <a class="post-title-link" href="/blog/2018/10/24/which/" itemprop="url">
+                  which
                 </a>
               
             
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T15:32:39+08:00">
-                2018-09-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T17:56:00+08:00">
+                2018-10-24
               </time>
             
 
@@ -343,8 +343,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -380,13 +380,9 @@
       
         
           
-            <h1 id="Margin-Collapse"><a href="#Margin-Collapse" class="headerlink" title="Margin Collapse"></a>Margin Collapse</h1><p><br></p>
-<p>外边距叠加指:<strong>在普通文档流中，两个块级元素的垂直外边距会发生叠加</strong>。</p>
-<p>当一个块元素在另一个块元素上时， 两者之间的外边距由<em>在上方的</em>  <code>margin-bottom</code>和<em>在下方的</em>  <code>margin-top</code>中最大的值来决定</p>
-<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_1.gif" alt="margin collapse"></p>
-<p>一个块级元素包含在另一个块级元素内，且内部的块级元素没有<abbr title="padding">内边距</abbr>和<abbr title="border">边框</abbr>， 那么他的顶底外边距会和外部元素的顶底外边距进行叠加</p>
-<p><img src="http://www.w3school.com.cn/i/ct_css_margin_collapsing_example_2.gif" alt="inside block elements"></p>
-<p>只有在普通文档流中， 块级元素的外边距才会发生外边距叠加，行内框，绝对定位框，浮动框并不会进行外边距叠加</p>
+            <p>JNI error, JVM和JDK版本不匹配<br>然后我找了半天的原因，发现是环境变量的位置搞错了<br>当然首先是去找版本的问题，JDK，JRE什么的了解了一下，但是还是找不到具体的问题根源<br>发现可以使用<code>which</code>来追溯环境变量的位置</p>
+<p>结果是<code>javac</code>编译指令的源头是在jdk的bin里面的<br>但是<code>java</code>JVM运行指令是在另外一个文件夹里了，再去看了一下环境变量表，天知道我什么时候把java加到Path里了</p>
+<p>不过最后证明<code>which</code>在解决问题的时候真的很管用</p>
 
           
         
@@ -427,7 +423,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/12/我们这些普通的年轻人的出路在哪里/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/23/Vim-批量缩进/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -449,8 +445,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/09/12/我们这些普通的年轻人的出路在哪里/" itemprop="url">
-                  我们这些普通的年轻人的出路在哪里
+                <a class="post-title-link" href="/blog/2018/10/23/Vim-批量缩进/" itemprop="url">
+                  批量缩进
                 </a>
               
             
@@ -466,8 +462,163 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T00:28:34+08:00">
-                2018-09-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T22:20:00+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>当前行缩进</p>
+</blockquote>
+<p><code>&gt;&gt;</code></p>
+<blockquote>
+<p>从选中列开始向下n列，向右缩进</p>
+</blockquote>
+<p><code>n&gt;&gt;</code></p>
+<blockquote>
+<p>m到n行进行缩进</p>
+</blockquote>
+<p><code>m,n&gt;</code></p>
+<blockquote>
+<p>从m行开始缩进n行</p>
+</blockquote>
+<p><code>m&gt;n</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/16/pain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/10/16/pain/" itemprop="url">
+                  LIFE IS STRANGE
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T21:12:34+08:00">
+                2018-10-16
               </time>
             
 
@@ -526,14 +677,10 @@
       
         
           
-            <h2 id="我不太喜欢社交"><a href="#我不太喜欢社交" class="headerlink" title="我不太喜欢社交."></a>我不太喜欢社交.</h2><p>那就不社交了，有几个知心朋友满足了.</p>
-<h2 id="我真的很喜欢剪辑ps-推文制作吗"><a href="#我真的很喜欢剪辑ps-推文制作吗" class="headerlink" title="我真的很喜欢剪辑ps,推文制作吗."></a>我真的很喜欢剪辑ps,推文制作吗.</h2><p>不, 我一点不喜欢</p>
-<h2 id="很喜欢编程吗"><a href="#很喜欢编程吗" class="headerlink" title="很喜欢编程吗"></a>很喜欢编程吗</h2><p>是的</p>
-<h2 id="有多喜欢"><a href="#有多喜欢" class="headerlink" title="有多喜欢"></a>有多喜欢</h2><p>有时候写着代码就能high起来, 有时候又讨厌, 恨不得逃脱开来</p>
-<h2 id="我是为了生活找工作去编程吗"><a href="#我是为了生活找工作去编程吗" class="headerlink" title="我是为了生活找工作去编程吗"></a>我是为了生活找工作去编程吗</h2><p>是的, 我给我自己的压力太大了, 我都忘记掉我当时为什么去学编程了. 我想做通解编译器, 操作系统, 网路编程的牛人, 我想过能够成为和乌云这样的很帅的一群人一样. 对了, 我就是觉得编程很帅, 很符合我的感觉。</p>
-<p>但是突然之间, 自己有了很大压力, 感觉人生是有轨迹的. 我一定要挣到钱, 一定要买到房, 一定要独立地过, 我一定要成为能在社会立足地人, 就像符合他人地期待一样。<br>突然就会有一种苦涩</p>
-<h2 id="我们普通的年轻人出路-是在哪里呢"><a href="#我们普通的年轻人出路-是在哪里呢" class="headerlink" title="我们普通的年轻人出路, 是在哪里呢"></a>我们普通的年轻人出路, 是在哪里呢</h2><p>很想像张公子一样做一个潇洒的人, 每个人都有自己觉得很帅的时候吧，每个人都有觉得自己自由的时候吧. 我的自由就在黑白的命令行里了，我想去做我想成为的人. </p>
-<h2 id="会感到无力吗"><a href="#会感到无力吗" class="headerlink" title="会感到无力吗"></a>会感到无力吗</h2><p>常常感到，作为一个不是科班，又没有课蹭的，自学真的很麻烦，又没有任何目标，完全就是摸黑，不过也是我不善于求助的原因吧。其实我也向知乎求助了，如果没有知乎我可能会更迷茫吧。我也了解到了勃学这种奇葩的理论，不过有一点我还是觉得很ok的，认识到自己的不足，认识到自己的失败，<strong>成功是宇宙禁止的东西</strong></p>
+            <p>哎，这一周真的经历了很多</p>
+<p>有些时候，不经历过的情感，难以想象其中的痛苦</p>
+<p>起码我活过来了，继续努力吧</p>
+<p>最近也开始复习python了，每天看一两道算法题</p>
 
           
         
@@ -574,7 +721,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/01/14/B1018/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/10/07/nand2tetris/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -596,8 +743,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/01/14/B1018/" itemprop="url">
-                  乙级 1018 剪刀锤子布
+                <a class="post-title-link" href="/blog/2018/10/07/nand2tetris/" itemprop="url">
+                  FromNand2Tetris
                 </a>
               
             
@@ -613,8 +760,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T13:45:00+08:00">
-                2018-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T21:00:00+08:00">
+                2018-10-07
               </time>
             
 
@@ -636,8 +783,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
+                  <a href="/categories/计算机组成原理/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机组成原理</span>
                   </a>
                 </span>
 
@@ -673,153 +820,21 @@
       
         
           
-            <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大</p>
-<p>输入:<br>输入第 1 行给出正整数N(≤10<sup>5</sup>)，即双方交锋的次数。随后<code>N</code>行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。<code>C</code> 代表“锤子”、<code>J</code> 代表“剪刀”、<code>B</code> 代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。</p>
-<p>输出:<br>输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空格分隔。第 3 行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有 1 个空格。如果解不唯一，则输出按字母序最小的解。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>优化: 可以使用长度为三的数组来存储B, C, J赢的次数<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> firstW[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;, secondW[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">```C</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  getchar();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> first;</span><br><span class="line">  <span class="keyword">char</span> second;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> draw = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstWin = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstDefeated = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> firstB = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstC = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstJ = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondB = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondC = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondJ = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c %c"</span>, &amp;first, &amp;second);</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (first == second) &#123;</span><br><span class="line">      draw++;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (first == <span class="string">'B'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'C'</span>) &#123;</span><br><span class="line">        firstWin++;</span><br><span class="line">        firstB++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'J'</span>) &#123;</span><br><span class="line">        secondJ++;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (first == <span class="string">'C'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'B'</span>) &#123;</span><br><span class="line">        secondB++;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'J'</span>) &#123;</span><br><span class="line">        firstC++;</span><br><span class="line">        firstWin++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// first == 'J'</span></span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'B'</span>) &#123;</span><br><span class="line">        firstWin++;</span><br><span class="line">        firstJ++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'C'</span>) &#123;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">        secondC++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/***************/</span></span><br><span class="line">  <span class="comment">/*    printf   */</span></span><br><span class="line">  <span class="comment">/***************/</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, firstWin, draw, firstDefeated);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, firstDefeated, draw, firstWin);</span><br><span class="line">  <span class="keyword">if</span> (firstB &gt;= firstC &amp;&amp; firstB &gt;= firstJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'B'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firstC &gt;= firstJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'C'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'J'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (secondB &gt;= secondC &amp;&amp; secondB &gt;= secondJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'B'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (secondC &gt;= secondJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'C'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'J'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.liuchuo.net/archives/539" target="_blank" rel="noopener">https://www.liuchuo.net/archives/539</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> jiawin = <span class="number">0</span>, yiwin = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> jia[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;, yi[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">char</span> s, t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; t;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="string">'B'</span> &amp;&amp; t == <span class="string">'C'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">0</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'B'</span> &amp;&amp; t == <span class="string">'J'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">2</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'C'</span> &amp;&amp; t == <span class="string">'B'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">0</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'C'</span> &amp;&amp; t == <span class="string">'J'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">1</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'J'</span> &amp;&amp; t == <span class="string">'B'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">2</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'J'</span> &amp;&amp; t == <span class="string">'C'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">1</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; jiawin &lt;&lt; <span class="string">" "</span> &lt;&lt; n - jiawin - yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; yiwin &lt;&lt; <span class="built_in">endl</span> &lt;&lt; yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; n - jiawin - yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; jiawin &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">int</span> maxjia = jia[<span class="number">0</span>] &gt;= jia[<span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    maxjia = jia[maxjia] &gt;= jia[<span class="number">2</span>] ? maxjia : <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> maxyi = yi[<span class="number">0</span>] &gt;= yi[<span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    maxyi = yi[maxyi] &gt;= yi[<span class="number">2</span>] ? maxyi : <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">4</span>] = &#123;<span class="string">"BCJ"</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; str[maxjia] &lt;&lt; <span class="string">" "</span> &lt;&lt; str[maxyi];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/01/13/B1017/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YNG`s Not Gu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="whalesea`s blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2018/01/13/B1017/" itemprop="url">
-                  乙级 1017 A除以B
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T18:48:00+08:00">
-                2018-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>要求计算 A/B，其中 A 是不超过 1000 位的正整数，B 是 1 位正整数。你需要输出商数 Q 和余数 R，使得 A=B×Q+R 成立<br>输入格式: <code>A B</code><br>输出格式: <code>Q R</code></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>1000位数字无法用基础数据类型存储，需要通过字符的转化进行模拟除法过程<br>除法的正常过程:<br>第一位 ÷ B，得到商和余数<br>如果商存在就输出<br>随后考虑第二位，需要加上上一位计算的余数*10，再÷B，得到商和余数<br>输出商(其实还要考虑之前的商存不存在，如果之前的商一致都不存在，这个也不输出)</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> dividend[<span class="number">1001</span>];</span><br><span class="line">    <span class="keyword">int</span> divisor;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s %d"</span>, dividend, &amp;divisor);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> quotient = (dividend[<span class="number">0</span>] - <span class="string">'0'</span>) / divisor;</span><br><span class="line">    <span class="keyword">int</span> remaining = (dividend[<span class="number">0</span>] - <span class="string">'0'</span>) % divisor;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(dividend);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开头或者只有一个数的时候，需要特殊处理</span></span><br><span class="line">    <span class="keyword">if</span> (len == <span class="number">1</span> || quotient != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(quotient + <span class="number">48</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//模拟除法过程</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        quotient = (remaining * <span class="number">10</span> + dividend[i] - <span class="string">'0'</span>) / divisor;</span><br><span class="line">        <span class="built_in">putchar</span>(quotient + <span class="number">48</span>);</span><br><span class="line">        remaining = (remaining * <span class="number">10</span> + dividend[i] - <span class="string">'0'</span>) % divisor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(remaining + <span class="number">48</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <hr>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>coursera：From nand to tetris，part I &amp; part II<br>该课程是由希伯来大学教授组织的网络课程，官网（<a href="http://www.nand2tetris.com）" target="_blank" rel="noopener">www.nand2tetris.com）</a><br>主要内容是教授<strong>计算机组成原理的基础知识</strong></p>
+<hr>
+<h1 id="推荐理由"><a href="#推荐理由" class="headerlink" title="推荐理由"></a>推荐理由</h1><ol>
+<li>课程特别编写了配套的程序，设计了特定的计算机语言来方便初学者学习基础知识</li>
+<li>给了一个很浅，但又具有广阔视野的对计算机的介绍<ul>
+<li>浅是因为每一个片段的知识都是比较基本的，对一些大学教材复杂的内容封装完，只给一个用户接口，每一章节也只有很少几个实现的作业</li>
+<li>深是涵盖的方面确实很广，第一周是基础的门，第二周是实现ALU计算单元，第三周实现寄存器和内容，第四周介绍一种简单的汇编语言，第五周综合一，二，三周内容实现一个CPU，第六周和第四周对应，实现一个assembler。作业量是每周3-4h，cpu那节课我写了好久好久，运气好debug一次过的情况下也写了有5个小时</li>
+</ul>
+</li>
+<li>虽然只学了part I， 但是总体感觉学的很爽，毕竟之前对这一块一无所知，作业难度设置也比较合理吧，满足敲键盘思考的需求</li>
+<li>1.25x 可以让人专心紧跟老师，不走神</li>
+</ol>
+<hr>
+<h1 id="未来视"><a href="#未来视" class="headerlink" title="未来视"></a>未来视</h1><p>个人将其定位是计算机组成原理的入门知识<br>之后主干的学习是CSAPP书配合CMU的视频/coursera UW的hardware-software interface，考研向还是主要采用王道或者哈工大/北邮的计算机组成原理</p>
 
           
         
@@ -860,7 +875,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/01/07/B1004/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/09/22/原型继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YNG`s Not Gu">
@@ -882,8 +897,8 @@
             
               
                 
-                <a class="post-title-link" href="/blog/2018/01/07/B1004/" itemprop="url">
-                  乙级 1004 成绩排名
+                <a class="post-title-link" href="/blog/2018/09/22/原型继承/" itemprop="url">
+                  原型继承
                 </a>
               
             
@@ -899,8 +914,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-07T20:02:00+08:00">
-                2018-01-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T23:42:39+08:00">
+                2018-09-22
               </time>
             
 
@@ -922,8 +937,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT</span>
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
                   </a>
                 </span>
 
@@ -959,9 +974,31 @@
       
         
           
-            <p>##描述<br>读入 n（&gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学</p>
-<p>##Code<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  getchar();</span><br><span class="line">  <span class="keyword">char</span> name[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">char</span> studentID[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">int</span> score = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> maxScore = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> minScore = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">char</span> nameMax[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">char</span> nameMin[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">char</span> IDMax[<span class="number">100</span>];</span><br><span class="line">  <span class="keyword">char</span> IDMin[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s %s %d"</span>, name, studentID, &amp;score);</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (score &gt; maxScore) &#123;</span><br><span class="line">      maxScore = score;</span><br><span class="line">      <span class="built_in">sscanf</span>(name, <span class="string">"%s"</span>, nameMax);</span><br><span class="line">      <span class="built_in">sscanf</span>(studentID, <span class="string">"%s"</span>, IDMax);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (score &lt; minScore) &#123;</span><br><span class="line">        minScore = score;</span><br><span class="line">        <span class="built_in">sscanf</span>(name, <span class="string">"%s"</span>, nameMin);</span><br><span class="line">        <span class="built_in">sscanf</span>(studentID, <span class="string">"%s"</span>, IDMin);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s %s\n"</span>, nameMax, IDMax);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s %s\n"</span>, nameMin, IDMin);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要用到sscanf将字符串输出到特定的char[]中</p>
+            <hr>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>当谈到继承时，JavaScript 只有一种结构：<strong>对象</strong>。每个实例对象（object ）都有一个私有属性 - <strong> <strong>proto</strong></strong> 指向它的原型对象（prototype）。该原型对象也有一个自己的原型对象 ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节</p>
+<p><code>Student</code>构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="扩展原型链"><a href="#扩展原型链" class="headerlink" title="扩展原型链"></a>扩展原型链</h1><p>现在想基于<code>Student</code>扩展出<code>PrimaryStudent</code>, 可以先定义出<code>PrimaryStudent</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是调用了<code>Student</code>构造函数，并不等于继承了<code>Student</code><br><code>PrimaryStudent</code>所创建的对象的原型链是<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Object.prototype —-&gt; null</em></strong><br>事实上，基于<code>Student</code>拓展<code>PrimaryStudent</code>是想创建如下的原型链<br><strong><em>new PrimaryStudent() —-&gt; PrimaryStudent.prototype —-&gt; Student.prototype —-&gt; Obeject.prototy[e —-&gt; null</em></strong></p>
+<p>借助一个中间对象来实现正确的原型链，这个中间对象的原型要指向<code>Student.prototype</code>。这个中间对象可以<strong>使用空函数<code>F</code></strong>实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span> grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// F的原型指向Student的原型</span></span><br><span class="line">F.prototype = Student.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">//把PrimaryStudent的原型指向一个F对象，那么PrimaryStudent的原型就指向了Student的原型</span></span><br><span class="line">PrimaryStudent.prototype = <span class="keyword">new</span> F();</span><br><span class="line"><span class="comment">//把`PrimaryStudent`原型的`constructor`修复成`PrimaryStudent`</span></span><br><span class="line">PrimaryStudent.prototype.constructor = Primary;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此时可以在PrimaryStudent的原型(也就是new F())上定义新的方法</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = fucntion () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> PrimaryStudent( &#123;</span><br><span class="line">    name : <span class="string">'小明'</span>,</span><br><span class="line">    grade : <span class="number">2</span></span><br><span class="line">&#125;);</span><br><span class="line">xiaoming.name;              <span class="comment">//小明</span></span><br><span class="line">xiaoming.grade;              <span class="comment">// 2</span></span><br><span class="line">xiaoming.__proto__ === PrimaryStudent.prototype;      <span class="comment">// true</span></span><br><span class="line">xiaoming.__proto__.__proto__ ==Student.prototype;     <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf PrimaryStudent；                          <span class="comment">// true</span></span><br><span class="line">xiaoming instanceOf Student;                                          <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>下图是新的原型链的结构<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001439872160923ca15925ec79f4692a98404ddb2ed5503000/l" alt="relationship"></p>
+<p><code>new F()</code> 只是用来连接，并没有改变原有的<code>Student</code>定义的原链</p>
+<hr>
+<h1 id="用inherits封装"><a href="#用inherits封装" class="headerlink" title="用inherits封装"></a>用<code>inherits</code>封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherist</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.ptototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="PrimaryStudent-prototype-new-Student"><a href="#PrimaryStudent-prototype-new-Student" class="headerlink" title="PrimaryStudent.prototype = new Student()"></a>PrimaryStudent.prototype = new Student()</h1><p>不建议直接使用<code>PrimaryStudent.prototype = new Student()</code><br>先修改下Student的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name ? props.name : <span class="string">'Unnamed'</span>;</span><br><span class="line">    <span class="keyword">this</span>.height = <span class="number">170</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果正常继承，<code>PrimaryStudent.prototype</code>里面不能存在<code>Student</code>实例中才能存在的<code>height</code>和<code>name</code>。<br>如果使用了<code>PrimaryStudent.prototype = new Student()</code>，就会发现<code>PrimaryStudent.prototype</code>里面存在这两个属性。<br>如果使用的架桥函数<code>F</code>，则<code>PrimaryStudent.prototype</code>中只有<code>Student {constructor: ƒ, getGrade: ƒ}</code>两个方法。</p>
+<hr>
+<h1 id="Object-creat"><a href="#Object-creat" class="headerlink" title="Object.creat()"></a>Object.creat()</h1><p>不用架桥函数的办法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PrimaryStudent.prototype = <span class="built_in">Object</span>.create(Student.prototype)</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码和使用架桥函数的结果一样。</p>
+<p><code>Object.create</code>和架桥函数的办法，和使用 <code>new Student()</code>的区别在于<br>使用<code>Object.create</code>和架桥函数的时候，只会将<code>PrimaryStudent.prototype</code>中的<code>__proto__</code>指向<code>Student</code>这个函数的<strong>原型对象</strong> <code>Student.prototype</code><br>而使用<code>new Student()</code>的时候，<code>PrimaryStudent.prototype</code>指向的是<code>Student</code>这个函数对象的<strong>一个实例s</strong>，<code>Student</code>函数对象在实例化的时候，会完全拷贝一份<code>Student.prototype</code>，也会增加<code>Student</code>中的属性，比如<code>name</code></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>定义新的构造函数，利用<code>.call(this, otherParameter)</code>调用希望继承的构造函数，并绑定<code>this</code></li>
+<li>借助空函数<code>F()</code>实现原型继承，最好通过封装<code>inherits</code></li>
+<li>在新的构造函数原型上就可以定义新的方法</li>
+</ol>
 
           
         
@@ -997,7 +1034,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1042,7 +1079,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1088,7 +1125,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/我是牛" target="_blank" title="Zhihu">
+                <a href="https://www.zhihu.com/people/a-si-pi-25/activities" target="_blank" title="Zhihu">
                   
                   Zhihu
                 </a>
