@@ -1,0 +1,757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C,C++,PAT乙级,OJ," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="whalesea`s blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="描述现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大 输入:输入第 1 行给出正整数N(≤105)，即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C 代表“锤子”、J 代表“剪刀”、B 代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。 输出:输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空">
+<meta name="keywords" content="C,C++,PAT乙级,OJ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乙级 1018 剪刀锤子布">
+<meta property="og:url" content="http://yoursite.com/blog/2018/01/14/B1018/index.html">
+<meta property="og:site_name" content="whalesea`s blog">
+<meta property="og:description" content="描述现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大 输入:输入第 1 行给出正整数N(≤105)，即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C 代表“锤子”、J 代表“剪刀”、B 代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。 输出:输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-14T05:52:31.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="乙级 1018 剪刀锤子布">
+<meta name="twitter:description" content="描述现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大 输入:输入第 1 行给出正整数N(≤105)，即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C 代表“锤子”、J 代表“剪刀”、B 代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。 输出:输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/blog/2018/01/14/B1018/"/>
+
+
+
+
+
+  <title> 乙级 1018 剪刀锤子布 | whalesea`s blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">whalesea`s blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">willsee</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2018/01/14/B1018/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YNG`s Not Gu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="whalesea`s blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                乙级 1018 剪刀锤子布
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T13:45:00+08:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大</p>
+<p>输入:<br>输入第 1 行给出正整数N(≤10<sup>5</sup>)，即双方交锋的次数。随后<code>N</code>行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。<code>C</code> 代表“锤子”、<code>J</code> 代表“剪刀”、<code>B</code> 代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。</p>
+<p>输出:<br>输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空格分隔。第 3 行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有 1 个空格。如果解不唯一，则输出按字母序最小的解。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>优化: 可以使用长度为三的数组来存储B, C, J赢的次数<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> firstW[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;, secondW[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">```C</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  getchar();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> first;</span><br><span class="line">  <span class="keyword">char</span> second;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> draw = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstWin = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstDefeated = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> firstB = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstC = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> firstJ = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondB = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondC = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> secondJ = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c %c"</span>, &amp;first, &amp;second);</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (first == second) &#123;</span><br><span class="line">      draw++;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (first == <span class="string">'B'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'C'</span>) &#123;</span><br><span class="line">        firstWin++;</span><br><span class="line">        firstB++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'J'</span>) &#123;</span><br><span class="line">        secondJ++;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (first == <span class="string">'C'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'B'</span>) &#123;</span><br><span class="line">        secondB++;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'J'</span>) &#123;</span><br><span class="line">        firstC++;</span><br><span class="line">        firstWin++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// first == 'J'</span></span><br><span class="line">      <span class="keyword">if</span> (second == <span class="string">'B'</span>) &#123;</span><br><span class="line">        firstWin++;</span><br><span class="line">        firstJ++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (second == <span class="string">'C'</span>) &#123;</span><br><span class="line">        firstDefeated++;</span><br><span class="line">        secondC++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/***************/</span></span><br><span class="line">  <span class="comment">/*    printf   */</span></span><br><span class="line">  <span class="comment">/***************/</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, firstWin, draw, firstDefeated);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, firstDefeated, draw, firstWin);</span><br><span class="line">  <span class="keyword">if</span> (firstB &gt;= firstC &amp;&amp; firstB &gt;= firstJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'B'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (firstC &gt;= firstJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'C'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'J'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (secondB &gt;= secondC &amp;&amp; secondB &gt;= secondJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'B'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (secondC &gt;= secondJ) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'C'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'J'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.liuchuo.net/archives/539" target="_blank" rel="noopener">https://www.liuchuo.net/archives/539</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> jiawin = <span class="number">0</span>, yiwin = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> jia[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;, yi[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">char</span> s, t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; t;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="string">'B'</span> &amp;&amp; t == <span class="string">'C'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">0</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'B'</span> &amp;&amp; t == <span class="string">'J'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">2</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'C'</span> &amp;&amp; t == <span class="string">'B'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">0</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'C'</span> &amp;&amp; t == <span class="string">'J'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">1</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'J'</span> &amp;&amp; t == <span class="string">'B'</span>) &#123;</span><br><span class="line">            jiawin++;</span><br><span class="line">            jia[<span class="number">2</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="string">'J'</span> &amp;&amp; t == <span class="string">'C'</span>) &#123;</span><br><span class="line">            yiwin++;</span><br><span class="line">            yi[<span class="number">1</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; jiawin &lt;&lt; <span class="string">" "</span> &lt;&lt; n - jiawin - yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; yiwin &lt;&lt; <span class="built_in">endl</span> &lt;&lt; yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; n - jiawin - yiwin &lt;&lt; <span class="string">" "</span> &lt;&lt; jiawin &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">int</span> maxjia = jia[<span class="number">0</span>] &gt;= jia[<span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    maxjia = jia[maxjia] &gt;= jia[<span class="number">2</span>] ? maxjia : <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> maxyi = yi[<span class="number">0</span>] &gt;= yi[<span class="number">1</span>] ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    maxyi = yi[maxyi] &gt;= yi[<span class="number">2</span>] ? maxyi : <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">4</span>] = &#123;<span class="string">"BCJ"</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; str[maxjia] &lt;&lt; <span class="string">" "</span> &lt;&lt; str[maxyi];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/PAT乙级/" rel="tag"># PAT乙级</a>
+          
+            <a href="/tags/OJ/" rel="tag"># OJ</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/01/13/B1017/" rel="next" title="乙级 1017 A除以B">
+                <i class="fa fa-chevron-left"></i> 乙级 1017 A除以B
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/09/12/我们这些普通的年轻人的出路在哪里/" rel="prev" title="我们这些普通的年轻人的出路在哪里">
+                我们这些普通的年轻人的出路在哪里 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="YNG`s Not Gu" />
+          <p class="site-author-name" itemprop="name">YNG`s Not Gu</p>
+           
+              <p class="site-description motion-element" itemprop="description">life is short, fuck the world</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Whalesea-Gustav" target="_blank" title="Github">
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/我是牛" target="_blank" title="Zhihu">
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YNG`s Not Gu</span>
+</div>
+
+
+<div class="powered-by">
+  可能努力也不会有好结果
+</div>
+
+<div class="theme-info">
+  那不是不努力的理由 
+
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

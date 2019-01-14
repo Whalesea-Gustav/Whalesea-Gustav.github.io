@@ -48,7 +48,7 @@
     <link href="http://yoursite.com//blog/2018/12/28/B1003/"/>
     <id>http://yoursite.com//blog/2018/12/28/B1003/</id>
     <published>2018-12-28T15:22:00.000Z</published>
-    <updated>2019-01-13T10:50:54.669Z</updated>
+    <updated>2019-01-14T05:46:46.426Z</updated>
     
     <summary type="html">
     
@@ -73,6 +73,8 @@
     
       <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
     
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
   </entry>
   
   <entry>
@@ -80,7 +82,7 @@
     <link href="http://yoursite.com//blog/2018/12/28/B1002/"/>
     <id>http://yoursite.com//blog/2018/12/28/B1002/</id>
     <published>2018-12-28T14:19:00.000Z</published>
-    <updated>2018-12-28T15:31:18.886Z</updated>
+    <updated>2019-01-14T05:46:44.275Z</updated>
     
     <summary type="html">
     
@@ -88,8 +90,9 @@
       
         
         
-          &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。&lt;/p&gt;
-&lt;p&gt;输入格式：&lt;br&gt;每个测试输入包含 1
+          &lt;p&gt;## &lt;/p&gt;
+&lt;p&gt;读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;br&gt;每个测试输入包含 1 个测试用例，即给出自然数 n 的值。这里保证 n 小于 10^100&lt;br&gt;​​
         
       
     
@@ -104,6 +107,8 @@
     
       <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
     
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
+    
   </entry>
   
   <entry>
@@ -111,7 +116,7 @@
     <link href="http://yoursite.com//blog/2018/12/28/B1001/"/>
     <id>http://yoursite.com//blog/2018/12/28/B1001/</id>
     <published>2018-12-28T13:46:00.000Z</published>
-    <updated>2019-01-13T10:52:42.092Z</updated>
+    <updated>2019-01-14T05:46:40.238Z</updated>
     
     <summary type="html">
     
@@ -133,6 +138,8 @@
       <category term="C++" scheme="http://yoursite.com/tags/C/"/>
     
       <category term="PAT乙级" scheme="http://yoursite.com/tags/PAT%E4%B9%99%E7%BA%A7/"/>
+    
+      <category term="OJ" scheme="http://yoursite.com/tags/OJ/"/>
     
   </entry>
   
@@ -452,9 +459,9 @@
       <category term="计算机组成原理" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
-    
       <category term="nand2tetris" scheme="http://yoursite.com/tags/nand2tetris/"/>
+    
+      <category term="midnightTalk" scheme="http://yoursite.com/tags/midnightTalk/"/>
     
   </entry>
   
